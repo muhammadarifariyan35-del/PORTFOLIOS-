@@ -7,14 +7,145 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="stylesheet" href="style.css">
+
+   <style>
+    body{
+    margin: 0;
+    font-family: "poppins", sans-serif;
+}
+h1{
+    font-size: 50px;
+}
+h2{
+    font-size: 40px;
+}
+
+p{
+    color: dimgray;
+}
+.one{
+    color: orange;
+}
+.two{
+    width: 40% ;
+    float: left ;
+    margin-left: 5%;
+    padding-left: 2%;
+}
+.two img{
+    width:100% ;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+.three{
+    background-image: url("imagas/top-banner.png") ; 
+    background-repeat: no-repeat;
+}
+section{
+    height: 500px;
+    padding-bottom: 150px;
+}
+.four{
+    
+    text-decoration: none;
+    background-color: orange;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: rgba(81, 18, 208, 0.856);
+    font-weight: 700;
+    
+}
+.five{
+    background-image: url(imagas/dream-bg.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.six{
+    color: rgb(23, 184, 130);
+}
+.eight{
+    box-shadow: 10px 10px 40px gray;
+    border-radius: 5px;
+    height: 90%;
+    background-color: white;
+}
+.nine{
+    color: rgb(115, 6, 224);
+}
+.seven{
+    background-image: url("imagas/exp-bg.png");
+    background-repeat: no-repeat;
+    background-position: left;
+
+}
+#one{
+    border-left: 7px solid ;
+    border-image: linear-gradient(rgb(83, 30, 9), rgb(125, 92, 87));
+    border-image-slice: 1;
+
+}
+#two{
+    border-left: 7px solid ;
+    border-image: linear-gradient(blue, cyan);
+    border-image-slice: 1;
+}
+footer p{
+    text-align: center;
+}
+
+
+@media screen and (max-width:420px) {
+body{
+    margin: 0;
+    padding: 0;
+  } 
+  .six{
+    display: none;
+  }
+.two{
+    width: 100%;
+  }  
+h1, .one, h2, p, a{
+    text-align: left;
+    width: 100%;
+  }
+.five .two{
+    text-align: left;
+    width: 100%;
+}
+.five .two img{
+    display: none;
+}
+.seven{
+    text-align: left;
+    width: 100%;
+}
+.seven #one,
+.seven #two{
+    margin-left: 0px;
+    margin-bottom: 9px;
+}
+ .footer{
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+ }
+ #one,
+ #two{
+    box-shadow: none;
+    height: auto;
+ } 
+}
+   </style>
 </head>
 <body>
-    <section class="three">
-        <div class="two">
+    
+        <section class="arif">
+            <div class="two">
         <h1>Welcome to </h1>
         <h1><span class="one">Arif Ariyan</span> website</h1>
         <h3> World-class professional web developer </h3>
-        <p>Hi, I'm Arif Ariyan — a passionate Web Developer dedicated to turning ideas into interactive, user-friendly websites.
+        <p>Hi, I'm Arif Ariyan - a passionate Web Developer dedicated to turning ideas into interactive, user-friendly websites.
         I specialize in creating clean, responsive, and modern designs using HTML, CSS, JavaScript, and other essential web technologies. My goal is simple: to help businesses and individuals bring their vision to life online.
 
         Whether you need a simple landing page or a fully functional website, I'm ready to deliver high-quality work, on time, every time. Let's build something amazing together!</p>
@@ -23,7 +154,8 @@
         <div class="two">
             <img class="six" src="image 1-2 (1).png" alt="">
         </div>
-    </section>
+        </section>
+    
    
    
     <section class="five">

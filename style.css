@@ -35,12 +35,14 @@ section{
     padding-bottom: 150px;
 }
 .four{
+    
     text-decoration: none;
     background-color: orange;
-    padding: 10px 20px;
+    padding: 15px 30px;
     border-radius: 10px;
     color: rgba(81, 18, 208, 0.856);
     font-weight: 700;
+    
 }
 .five{
     background-image: url(imagas/dream-bg.png);
@@ -78,4 +80,48 @@ section{
 }
 footer p{
     text-align: center;
+}
+
+
+@media screen and (max-width:420px) {
+body{
+    margin: 0;
+    padding: 0;
+  } 
+  .six{
+    display: none;
+  }
+.two{
+    width: 100%;
+  }  
+h1, .one, h2, p, a{
+    text-align: left;
+    width: 100%;
+  }
+.five .two{
+    text-align: left;
+    width: 100%;
+}
+.five .two img{
+    display: none;
+}
+.seven{
+    text-align: left;
+    width: 100%;
+}
+.seven #one,
+.seven #two{
+    margin-left: 0px;
+    margin-bottom: 9px;
+}
+ .footer{
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+ }
+ #one,
+ #two{
+    box-shadow: none;
+    height: auto;
+ } 
 }

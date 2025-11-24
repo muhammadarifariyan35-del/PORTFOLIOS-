@@ -1,0 +1,49 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+#menu ul{
+    text-align: center;
+    margin-top: 50px;
+}
+#menu li{
+    display: inline-block;
+    
+    width: 70px;
+    height: 100px;
+    margin: 0 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000000;
+    cursor: pointer;
+}
+#menu ul li.red{
+    background-color: #c0392b;
+}
+#menu ul li.green{
+    background-color: #27ae60;
+}
+#menu ul li.blue{
+    background-color: #30336b;
+}
+#menu ul li.yellow{
+    background-color: #e1b12c;
+}
+#menu ul li.purple{
+    background-color: #6F1E51;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
