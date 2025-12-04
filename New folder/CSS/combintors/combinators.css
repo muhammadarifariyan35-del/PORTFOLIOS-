@@ -1,0 +1,32 @@
+*{
+    font-size: x-large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+p{
+    color:#58B19F;
+}
+div p{
+    color: #B33771;
+}
+div > p{
+    color: #F97F51;
+}
+div + p{
+    color: #BDC581;
+}
+section + p{
+    color: #aaa69d;
+}
+div ~ p{
+    color: fuchsia;
+}
+section ~ p{
+    color: red;
+}
+.parent p{
+    color: black;
+}
+.parent > p{
+    color:#C4E538;
+}

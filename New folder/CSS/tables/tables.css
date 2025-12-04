@@ -1,0 +1,40 @@
+ body{
+            background-color: #58b19fe9;
+        }
+        table, th, td{
+            border: 3px solid #58B19F;
+            border-collapse: collapse;
+            padding: 5px 10px;
+            border-radius: 9px;
+            
+        }
+        th{
+            background-color: #383f49;
+            height: 50px;
+            font-size: x-large;
+            color: aliceblue;
+            position: sticky;
+            top: 0px;
+            text-transform: uppercase;
+            
+
+        }
+        td{
+           height: 45px;
+            background-color: #35456d91;
+            vertical-align: center;
+            text-align: center;
+            color: #02221b ;
+            font-size: larger;
+            text-transform: uppercase;
+            z-index: 2;
+
+        }
+        table{
+            width: 100%;
+            
+        }
+       td:hover,
+       th:hover{
+        background-color: #7f8fa6;
+       }

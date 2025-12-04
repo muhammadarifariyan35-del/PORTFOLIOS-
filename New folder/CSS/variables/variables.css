@@ -1,0 +1,55 @@
+        :root{
+        --main: #fbc531;
+        --sec: #192a56;
+        --bg: #5e6d80;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            background-color:var(--bg) ;
+            box-sizing: border-box;
+            text-transform: capitalize;
+        }
+        h1{
+            text-align: center;
+            background-color: #273c75;
+            margin: 20px 5%;
+            
+            color: var(--main);
+            border-radius: 10px;
+            font-size: 50px;
+            box-sizing: border-box;
+        }
+        .parent{
+        
+        }
+        .child{
+            background-color:var(--sec);
+            
+            width: 45%;
+            text-align: left;
+            margin: 15px;
+            padding: 15px 25px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            float: left;
+        }
+        h3{
+            color:#ccae62 ;
+        }
+        p{
+            color:hsla(18, 100%, 72%, 0.789);
+            font-size: 18px;
+        }
+        a{
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 10p 0px 20px;
+            padding: 10px 20px ;
+            background-color: var(--main);
+            border-radius: 10px;
+            font-size: large;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
+        

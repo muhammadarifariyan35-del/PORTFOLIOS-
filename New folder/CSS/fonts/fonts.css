@@ -1,0 +1,17 @@
+ h1{
+            
+            font-family: "Charm", cursive;
+            font-weight: 700;
+            font-style: normal;
+            text-indent: 300px;
+            letter-spacing: 5px;
+
+        }
+        p{
+             font-family: "Charm", cursive;
+            font-weight: 400;
+            font-style: normal;font-size: 20px;
+        }
+        h2{
+            font-variant: small-caps;
+        }

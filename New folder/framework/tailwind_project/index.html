@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE MOON PROJECT</title>
+    <link rel="shortcut icon" class="text-white"  href="favikon-Photoroom.png" type="image/x-icon">
+    <link rel="stylesheet" class="text-white"  href="style.css">
+</head>
+<body class="bg-stone-200 bg-linear-to-bl from-violet-100 to-fuchsia-200 ">
+    
+<header class=" bg-gray-700  py-2 relative mt-0.5 " >
+    <div class="container mx-auto w-9/10 flex justify-between" >
+            <a class="flex items-center font-semibold text-2xl text-white uppercase" class="text-white"  href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-9">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+</svg>
+secured area
+</a>
+        <nav class="">
+            <button  id="btn"
+                 class="text-white  text-end flex cursor-pointer md:hidden">
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+
+            </button>
+            <ul id="main_menu" class="absolute bg-gray-700 w-30  top-10 right-0 p-1 text-center hidden  rounded-lg 
+            
+             md:flex md:w-auto md:right-0
+            md:top-0 md:my-0 md:h-13 md:p-0 md:mr-[3%]
+            
+            ">
+                <li class="mb-2 py-1 px-1 hover:bg-blue-300 rounded-lg md:mx-3 md:p-0 md:my-auto  md:hover:bg-gray-700" ><a class="text-white font-semibold capitalize text-[22px] "  href="">home</a></li>
+                <li class="mb-2 py-1 px-1 hover:bg-blue-300 rounded-lg md:mx-3 md:p-0 md:my-auto  md:hover:bg-gray-700" ><a class="text-white font-semibold capitalize text-[22px] "  href="">contact</a></li>
+                <li class="mb-2 py-1 px-1 hover:bg-blue-300 rounded-lg md:mx-3 md:p-0 md:my-auto  md:hover:bg-gray-700" ><a class="text-white font-semibold capitalize text-[22px] "  href="">login</a></li>
+                <li class="mb-2 py-1 px-1 hover:bg-blue-300 rounded-lg md:mx-3 md:p-0 md:my-auto  md:hover:bg-gray-700" ><a class="text-yellow-500 font-semibold capitalize text-[22px] "  href="">sign in</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<section class="">
+    <div class="container mx-auto w-19/20 flex justify-between flex-col 
+    md:flex-row md:pt-40  pb-40 md:align-baseline ">
+
+         <div class=" py-7
+        md:max-w-3xl md:w-1/2 md:order-2 md:px-0
+        
+         ">
+            <img src="loagin-Photoroom.png" alt="">
+        </div>
+
+
+
+        <div class=" bg-blue-200 p-7 rounded-xl shadow-[0_0_20px_gray] py-8 
+        md:w-1/2 md:max-w-[500px] md:mx-auto  md:flex md:justify-center md:flex-col md:max-h-130
+        bg-linear-to-r from-blue-200 to-blue-100
+        " >
+            <h3 class="text-3xl font-bold tracking-widest mb-1
+            " >welcome back</h3>
+            <p class=" text-gray-600 mb-1.5
+            " >please enter your details</p>
+            <form action="">
+                <label class="font-semibold block tracking-wider text-lg mb-1 text-gray-800" for="email">email address</label>
+                <input class="border w-full p-2 mb-3 rounded-lg shadow-[0_0_5px_gray]" type="email" name="" id="" placeholder="enter your email address">
+
+                <label class="font-semibold block tracking-wider text-lg mb-1 text-gray-800" for="password">password</label>
+                <input class="border w-full p-2 mb-3 rounded-lg shadow-[0_0_5px_gray]" type="password" name="" id="" placeholder="enter your password">
+                
+                <input class="m-1 py-2 px-30 block mx-auto bg-gray-800 rounded-lg text-white text-xl font-semibold tracking-wider hover:bg-gray-950 cursor-pointer mb-4" type="submit" value="sign in">
+                
+            </form>
+            <p class=" text-center" >don't have an account? <a class="underline underline-offset-5 text-blue-500" href="#">sign up</a></p>
+        </div>
+
+
+       
+    </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

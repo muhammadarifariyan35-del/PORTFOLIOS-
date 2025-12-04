@@ -1,0 +1,62 @@
+ body{
+             font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            margin: 0;
+            text-transform: uppercase ;
+        }
+        #main{
+            background-color: #34495e;
+        }
+        #main ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            
+        }
+        #main li{
+            display: inline-block;
+            position: relative;
+        }
+        #main li a{
+            display: block ;
+            color:#f78fb3;
+            padding: 15px 12px;
+            font-size: x-large;
+            text-decoration: none;
+
+        }
+        #main li a:hover{
+         color: #f19066;
+         background-color:#5f83a8 ;
+
+        }
+        #main ul ul{
+            position: absolute;
+            top: 65.6px;
+            background-color:#303952 ;
+            width: 160px;
+            display: none;
+
+            
+        }
+         #main ul ul li{
+            display: block;
+         }
+       
+         
+         #main ul  li:hover a{
+            background-color:#56786eba ;
+         }
+        #main ul  li:hover ul{
+        display: block;
+         }
+        #main ul  li:hover li a{
+        background-color: none ;
+         }
+        
+        #main ul ul li a:hover{
+        background-color:#97968eba ;
+         }
+       

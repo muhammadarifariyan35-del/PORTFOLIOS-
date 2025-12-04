@@ -1,0 +1,12 @@
+ .patent{
+           background-color: rgba(1, 47, 47, 0.331);
+            width: 250px;
+            height: 300px;
+            overflow: scroll;
+            padding: .5%;
+            margin: 1.5%;
+            border: 5px solid rgba(69, 1, 138, 0.729);
+            float: left;
+            
+            
+        }

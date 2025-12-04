@@ -1,0 +1,12 @@
+body{
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            
+            font-weight: bolder;}
+        #test{
+            background-color: aqua;
+            width:max(95%, 90px);
+            margin: 0 auto;
+            width: min(50%, 1000px);
+            
+        }    

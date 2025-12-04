@@ -1,0 +1,9 @@
+ i, .bi, .material-icons{
+            display: inline;
+            float: left;
+            margin-left: 20px;
+            font-size: 90px;
+            text-shadow: 0.2px 0.2px rgba(50, 31, 83, 0.476);
+            color: rgb(0, 0, 0);
+            
+        }

@@ -1,0 +1,50 @@
+ body{
+      margin: 0;
+      padding: 0;
+     }
+      #nav{
+        margin: 3px;
+        padding: 0;
+        background-color: #2C3A47;
+        list-style: none;
+        overflow: hidden;
+      }
+      #nav li{
+        float: left;
+      }
+      #nav li a{
+        display: inline-block;
+        padding: 12px 25px;
+        color: #F8EFBA;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-transform: uppercase;
+      }
+      #nav li a:hover{
+        background-color: #3B3B98;
+      }
+
+      #display{
+        background-color: #6D214F;
+        margin: 15px 0px;
+        padding: 0;
+        list-style: none;
+      }
+      #display li{
+        display: inline-block;
+      }
+      #display li a{
+        display: inline-block;
+        padding: 12px 25px;
+        color: #F8EFBA;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: x-large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-transform: uppercase;
+      }
+      #display li a:hover{
+        background-color:#B33771;
+      }

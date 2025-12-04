@@ -1,0 +1,71 @@
+body{
+  background-image: url(download3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.scene{
+  width: 100px;
+  height: 100px;
+  perspective: 800px;
+}
+
+.cube{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 5s infinite linear;
+}
+
+.face{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .6;
+  backdrop-filter:blur(.3px);
+  border: .1px solid ;
+}
+
+/* Faces position */
+.front{
+    background-color: #f1c40f;
+    transform: translateZ(100px);
+}
+.back{
+    background-color: #27ae60;
+    transform: rotateY(180deg) translateZ(100px);
+}
+.right{
+    background-color: #2c3e50;
+    transform: rotatey(90deg) translateZ(100px);
+}
+.left{
+    background-color: #84817a;
+    transform: rotatey(-90deg) translateZ(100px);
+}
+.top{
+    background-color: #8e44ad;
+    transform: rotatex(90deg) translateZ(100px);
+}
+.bottom{
+    background-color: #5352ed;
+    transform: rotatex(-90deg) translateZ(100px);
+}
+
+/* Animation */
+@keyframes rotateCube {
+  0%{ transform: rotateX(0deg) rotateY(0deg); }
+  100%{ transform: rotateX(-360deg) rotateY(-360deg); }
+}
