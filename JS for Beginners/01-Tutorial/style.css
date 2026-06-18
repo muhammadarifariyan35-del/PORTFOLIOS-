@@ -1,0 +1,23 @@
+#paragraph {
+  color: brown;
+  font-size: x-large;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  text-transform: uppercase;
+}
+
+button {
+  background-color: cadetblue;
+  padding: 10px 20px;
+  border: none;
+  font-size: larger;
+  text-transform: capitalize;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+
+    
+}
+ 
