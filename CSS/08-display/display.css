@@ -1,0 +1,12 @@
+h1, p, span, a, h3{
+        background-color: rgb(130, 211, 227) ;
+    }
+    h1{
+        display: inline-block;
+    }
+    a{
+        display: block;
+    }
+    h3{
+        display: none;
+    }

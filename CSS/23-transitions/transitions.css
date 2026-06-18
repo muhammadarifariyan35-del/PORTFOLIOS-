@@ -1,0 +1,25 @@
+ body{
+             font-family: "Poppins", sans-serif;
+             margin: 0;
+            }
+        *, *::before, *::after{
+            box-sizing: border-box;
+        }    
+        .one{
+            background-color: #55efc4;
+            height: 100px ;
+            width: 100px;
+            border: 7px solid #896074;
+            border-radius: 6px;
+            margin-top: 20px;
+            margin-left: 20px;
+            transition: 5s;
+            transition-timing-function: ease-in-out;
+            transition-delay: 2s;
+        }
+        .one:hover{
+            width: 500px;
+            height: 500px;
+            background-color: #896074;
+            border: 20px solid burlywood ;
+        }

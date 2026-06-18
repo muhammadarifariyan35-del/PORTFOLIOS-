@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আপনার ৪ বছরের ক্যারিয়ার মাস্টারপ্ল্যান</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Anek+Bangla:wght@400;600;700&display=swap');
+
+        :root {
+            --bg: #f4efe6;
+            --surface: rgba(255, 255, 255, 0.78);
+            --surface-strong: #fffdf8;
+            --ink: #1f2937;
+            --muted: #5f6b7a;
+            --primary: #0f766e;
+            --primary-soft: #ccfbf1;
+            --accent: #ea580c;
+            --accent-soft: #ffedd5;
+            --line: rgba(120, 113, 108, 0.18);
+            --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(20, 184, 166, 0.16), transparent 30%),
+                radial-gradient(circle at 85% 15%, rgba(249, 115, 22, 0.16), transparent 28%),
+                linear-gradient(180deg, #fcfbf7 0%, var(--bg) 100%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Anek Bangla', sans-serif;
+        }
+
+        .glass-panel {
+            background: var(--surface);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            box-shadow: var(--shadow);
+        }
+
+        .soft-card {
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+        }
+
+        .tab-active {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .year-active {
+            border-color: rgba(15, 118, 110, 0.35);
+            background: linear-gradient(135deg, rgba(204, 251, 241, 0.95), rgba(255, 255, 255, 0.95));
+            transform: translateY(-1px);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.35s ease;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 360px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 430px;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased pb-14">
+    <header class="sticky top-0 z-50 border-b border-white/40 bg-[rgba(252,251,247,0.82)] backdrop-blur-xl">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+                <p class="text-sm font-semibold tracking-[0.18em] uppercase text-teal-700">Career Restart Blueprint</p>
+                <h1 class="text-2xl md:text-3xl font-bold text-stone-900">ক্যারিয়ার রিস্টার্ট: ৪ বছরের বাস্তব মাস্টারপ্ল্যান</h1>
+                <p class="text-sm md:text-base text-stone-600 mt-1">BOU পড়াশোনা, skill development, AI-ready career এবং ধাপে ধাপে income build করার গাইড</p>
+            </div>
+            <nav class="grid grid-cols-3 gap-2 rounded-2xl bg-white/65 p-2 border border-white/60 shadow-sm">
+                <button onclick="switchTab('roadmap')" id="tab-roadmap" class="rounded-xl border border-transparent px-3 py-2 text-sm md:text-base font-semibold transition tab-active">রোডম্যাপ</button>
+                <button onclick="switchTab('skills')" id="tab-skills" class="rounded-xl border border-transparent px-3 py-2 text-sm md:text-base font-semibold text-stone-600 transition">স্কিল</button>
+                <button onclick="switchTab('routine')" id="tab-routine" class="rounded-xl border border-transparent px-3 py-2 text-sm md:text-base font-semibold text-stone-600 transition">রুটিন</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-8 space-y-8">
+        <section class="glass-panel rounded-[28px] overflow-hidden">
+            <div class="grid lg:grid-cols-[1.25fr_0.75fr] gap-8 p-6 md:p-8 lg:p-10">
+                <div>
+                    <span class="inline-flex items-center gap-2 rounded-full bg-teal-100 px-4 py-2 text-sm font-semibold text-teal-800">নতুন শুরু মানে পিছিয়ে যাওয়া নয়, বরং সচেতনভাবে এগোনো</span>
+                    <h2 class="mt-5 text-3xl md:text-5xl leading-tight font-bold text-stone-900">আপনার বর্তমান অবস্থাকে শক্তিতে বদলে একটি টেকসই ভবিষ্যৎ বানান</h2>
+                    <p class="mt-5 text-base md:text-lg leading-8 text-stone-700">
+                        ২০ বছর বয়সে আবার পড়াশোনা শুরু করা দুর্বলতার চিহ্ন নয়। এটা এমন এক সময়, যখন আপনি পুরনো পথের চাপ বাদ দিয়ে
+                        নিজের জন্য নতুন, বাস্তব এবং আয়মুখী রাস্তা বেছে নিতে পারেন। এই পেজটি সেই লক্ষ্যেই সাজানো হয়েছে: যেন BOU-এর
+                        পড়াশোনা চালিয়ে যেতে যেতে আপনি এমন skill গড়তে পারেন যা AI-এর যুগেও মূল্যবান থাকবে।
+                    </p>
+                    <div class="mt-6 grid sm:grid-cols-3 gap-3">
+                        <div class="soft-card rounded-2xl p-4">
+                            <p class="text-2xl font-bold text-teal-700">৪ বছর</p>
+                            <p class="text-sm text-stone-600 mt-1">ভিত্তি থেকে income-ready level পর্যন্ত</p>
+                        </div>
+                        <div class="soft-card rounded-2xl p-4">
+                            <p class="text-2xl font-bold text-orange-600">১টি ফোকাস</p>
+                            <p class="text-sm text-stone-600 mt-1">একসাথে অনেক কিছু নয়, এক skill-এ mastery</p>
+                        </div>
+                        <div class="soft-card rounded-2xl p-4">
+                            <p class="text-2xl font-bold text-stone-900">AI + Human</p>
+                            <p class="text-sm text-stone-600 mt-1">টুল ব্যবহার + চিন্তা + execution</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="soft-card rounded-[26px] p-6 md:p-7 bg-gradient-to-br from-white to-orange-50">
+                    <h3 class="text-xl font-bold text-stone-900">এই প্ল্যানের মূল নীতি</h3>
+                    <div class="mt-5 space-y-4 text-sm md:text-base text-stone-700">
+                        <div class="rounded-2xl bg-white/90 p-4 border border-stone-200">
+                            <strong class="block text-stone-900">১. সার্টিফিকেট ব্যাকআপ, skill মূল পরিচয়</strong>
+                            <span class="block mt-1">BOU-এর পড়াশোনা চলবে, কিন্তু ক্যারিয়ারের আসল শক্তি হবে কাজ দেখাতে পারা।</span>
+                        </div>
+                        <div class="rounded-2xl bg-white/90 p-4 border border-stone-200">
+                            <strong class="block text-stone-900">২. AI-কে ভয় নয়, leverage করতে হবে</strong>
+                            <span class="block mt-1">যে AI ব্যবহার জানে, সে একই সময়ে বেশি কাজ, বেশি quality এবং বেশি value দিতে পারে।</span>
+                        </div>
+                        <div class="rounded-2xl bg-white/90 p-4 border border-stone-200">
+                            <strong class="block text-stone-900">৩. টিউটোরিয়াল নয়, project-first শেখা</strong>
+                            <span class="block mt-1">প্রতি পর্যায়ে ছোট ছোট কাজ বানানো, publish করা এবং feedback নেওয়া জরুরি।</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-3 gap-4">
+            <div class="soft-card rounded-[24px] p-5">
+                <p class="text-sm font-semibold text-teal-700">বর্তমান বাস্তবতা</p>
+                <h3 class="mt-2 text-xl font-bold">আপনার advantage কোথায়</h3>
+                <p class="mt-3 text-stone-600 leading-7">আপনি এখনই সিদ্ধান্ত বদলাতে পারছেন। অনেকেই দেরিতে বুঝে, কিন্তু দেরিতে শুরু করে। আপনি বুঝে শুরু করছেন।</p>
+            </div>
+            <div class="soft-card rounded-[24px] p-5">
+                <p class="text-sm font-semibold text-orange-600">সবচেয়ে বড় ঝুঁকি</p>
+                <h3 class="mt-2 text-xl font-bold">একসাথে ৫টা skill শেখা</h3>
+                <p class="mt-3 text-stone-600 leading-7">এতে confidence কমে যায়, progress দেখা যায় না। ১টা core skill + AI + communication যথেষ্ট।</p>
+            </div>
+            <div class="soft-card rounded-[24px] p-5">
+                <p class="text-sm font-semibold text-stone-700">সবচেয়ে বড় সুযোগ</p>
+                <h3 class="mt-2 text-xl font-bold">Global remote market</h3>
+                <p class="mt-3 text-stone-600 leading-7">বাংলাদেশে বসেও আপনি web, marketing, design বা automation skill দিয়ে বাইরের ক্লায়েন্টের কাজ করতে পারবেন।</p>
+            </div>
+        </section>
+
+        <section id="section-roadmap" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">4-Year Path</p>
+                    <h2 class="text-3xl font-bold text-stone-900">ধাপে ধাপে আপনার ক্যারিয়ার গড়ার রোডম্যাপ</h2>
+                    <p class="mt-2 text-stone-600 max-w-3xl">নিচের প্রতিটি বছর আলাদা লক্ষ্য নিয়ে সাজানো। আপনি চাইলে non-stop explore করতে পারবেন, কিন্তু বাস্তবে এক বছরের কাজ আরেক বছরের ভিত্তি তৈরি করবে।</p>
+                </div>
+                <div class="soft-card rounded-2xl px-4 py-3 text-sm text-stone-600">
+                    ফোকাস ফর্মুলা:
+                    <span class="font-semibold text-stone-900">Learn -> Build -> Show -> Earn</span>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-[340px_1fr] gap-6">
+                <div class="space-y-3">
+                    <button onclick="showYearDetails(1)" id="btn-year-1" class="year-button w-full text-left soft-card rounded-[22px] p-5 transition duration-200 year-active">
+                        <p class="text-sm font-semibold text-teal-700">বছর ১</p>
+                        <h3 class="mt-1 text-xl font-bold text-stone-900">ভিত্তি তৈরি</h3>
+                        <p class="mt-2 text-sm text-stone-600">নিজেকে বুঝুন, computer basics শিখুন, direction ঠিক করুন</p>
+                    </button>
+                    <button onclick="showYearDetails(2)" id="btn-year-2" class="year-button w-full text-left soft-card rounded-[22px] p-5 transition duration-200">
+                        <p class="text-sm font-semibold text-teal-700">বছর ২</p>
+                        <h3 class="mt-1 text-xl font-bold text-stone-900">ফোকাসড skill build</h3>
+                        <p class="mt-2 text-sm text-stone-600">একটি skill-এ গভীরভাবে ঢোকা, AI tools integrate করা</p>
+                    </button>
+                    <button onclick="showYearDetails(3)" id="btn-year-3" class="year-button w-full text-left soft-card rounded-[22px] p-5 transition duration-200">
+                        <p class="text-sm font-semibold text-teal-700">বছর ৩</p>
+                        <h3 class="mt-1 text-xl font-bold text-stone-900">পোর্টফোলিও ও income</h3>
+                        <p class="mt-2 text-sm text-stone-600">প্রমাণযোগ্য কাজ তৈরি, freelancing শুরু, profile build</p>
+                    </button>
+                    <button onclick="showYearDetails(4)" id="btn-year-4" class="year-button w-full text-left soft-card rounded-[22px] p-5 transition duration-200">
+                        <p class="text-sm font-semibold text-teal-700">বছর ৪</p>
+                        <h3 class="mt-1 text-xl font-bold text-stone-900">স্কেল ও career setup</h3>
+                        <p class="mt-2 text-sm text-stone-600">remote job, premium client, personal brand, systems</p>
+                    </button>
+                </div>
+
+                <div id="year-content-display" class="soft-card rounded-[28px] p-6 md:p-8 min-h-[420px]"></div>
+            </div>
+        </section>
+
+        <section id="section-skills" class="hidden space-y-6">
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Skill Choice</p>
+                <h2 class="text-3xl font-bold text-stone-900">AI যুগে কোন skill তুলনামূলক নিরাপদ</h2>
+                <p class="mt-2 text-stone-600 max-w-3xl">পুরোপুরি safe এমন skill নেই, কিন্তু কিছু skill আছে যেগুলোতে judgement, creativity, client communication এবং problem solving বেশি লাগে। সেখানে AI সহকারী হিসেবে কাজ করে, replacement হিসেবে নয়।</p>
+            </div>
+
+            <div class="soft-card rounded-[28px] p-6 md:p-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-stone-900">Skill Matrix</h3>
+                        <p class="text-sm text-stone-600 mt-1">X-axis = AI risk, Y-axis = আয় ও scope, bubble size = শেখার সময়</p>
+                    </div>
+                    <span class="inline-flex rounded-full bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 border border-orange-100">দীর্ঘমেয়াদে value আসে execution + communication + consistency থেকে</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="skillChart"></canvas>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-4">
+                <div class="soft-card rounded-[24px] p-6 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-stone-900">আপনার জন্য সবচেয়ে ভালো ৩টি direction</h3>
+                    <div class="mt-5 grid md:grid-cols-3 gap-4">
+                        <article class="rounded-2xl border border-teal-100 bg-teal-50/80 p-4">
+                            <p class="text-sm font-semibold text-teal-700">১. Frontend / Web Development</p>
+                            <p class="mt-2 text-sm leading-7 text-stone-700">HTML, CSS, JavaScript, React বা Next.js শিখে website, dashboard, landing page, UI components বানানো। AI coding speed বাড়াবে, কিন্তু structure, debugging, UX understanding আপনার কাছেই থাকবে।</p>
+                        </article>
+                        <article class="rounded-2xl border border-orange-100 bg-orange-50/80 p-4">
+                            <p class="text-sm font-semibold text-orange-700">২. Digital Marketing + AI Automation</p>
+                            <p class="mt-2 text-sm leading-7 text-stone-700">content strategy, ad copy adaptation, lead generation, email workflow, reporting। এখানে market psychology বোঝা গুরুত্বপূর্ণ, যা AI একা ভালোভাবে করতে পারে না।</p>
+                        </article>
+                        <article class="rounded-2xl border border-stone-200 bg-stone-50 p-4">
+                            <p class="text-sm font-semibold text-stone-800">৩. UI/UX Design</p>
+                            <p class="mt-2 text-sm leading-7 text-stone-700">user flow, wireframe, design system, visual hierarchy, usability। AI mockup দিতে পারে, কিন্তু ভালো product thinking এখনো human-led কাজ।</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="soft-card rounded-[24px] p-6">
+                    <h3 class="text-xl font-bold text-stone-900">যেগুলোতে খুব সতর্ক থাকবেন</h3>
+                    <ul class="mt-4 space-y-3 text-sm leading-7 text-stone-700">
+                        <li class="rounded-2xl border border-stone-200 bg-white p-4">শুধু data entry বা copy-paste ধরনের কাজ</li>
+                        <li class="rounded-2xl border border-stone-200 bg-white p-4">template-based basic graphics only</li>
+                        <li class="rounded-2xl border border-stone-200 bg-white p-4">AI ছাড়া value add করতে না পারা generic writing</li>
+                        <li class="rounded-2xl border border-stone-200 bg-white p-4">ক্লায়েন্ট communication, strategy, delivery discipline ছাড়া skill শেখা</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-routine" class="hidden space-y-6">
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Daily Strategy</p>
+                <h2 class="text-3xl font-bold text-stone-900">এমন একটি রুটিন, যা দীর্ঘসময় ধরে ধরে রাখা যায়</h2>
+                <p class="mt-2 text-stone-600 max-w-3xl">সফল হওয়ার জন্য ১২ ঘণ্টা কাজ করা জরুরি নয়। বরং কম হলেও নিয়মিত, পরিমাপযোগ্য এবং ক্লান্তি-সহনশীল রুটিন বেশি কার্যকর।</p>
+            </div>
+
+            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-6">
+                <div class="soft-card rounded-[28px] p-6 md:p-8">
+                    <h3 class="text-xl font-bold text-stone-900">প্রতিদিনের balanced routine</h3>
+                    <div class="mt-5 space-y-4">
+                        <div class="rounded-2xl border border-stone-200 bg-white p-5">
+                            <p class="text-sm font-semibold text-teal-700">সকাল</p>
+                            <p class="mt-2 text-stone-700 leading-7">১-১.৫ ঘণ্টা BOU / একাডেমিক পড়া। এই সময়টা relatively fresh mind-এর জন্য রাখুন। লক্ষ্য: certificate track alive রাখা।</p>
+                        </div>
+                        <div class="rounded-2xl border border-stone-200 bg-white p-5">
+                            <p class="text-sm font-semibold text-orange-700">দুপুর বা বিকেল</p>
+                            <p class="mt-2 text-stone-700 leading-7">২-৩ ঘণ্টা core skill practice। এখানে tutorial দেখা নয়, বরং code/design/marketing task হাতে-কলমে করা বেশি গুরুত্বপূর্ণ।</p>
+                        </div>
+                        <div class="rounded-2xl border border-stone-200 bg-white p-5">
+                            <p class="text-sm font-semibold text-stone-800">রাত</p>
+                            <p class="mt-2 text-stone-700 leading-7">৩০-৪৫ মিনিট English reading/listening + ২০ মিনিট AI tools দিয়ে problem solve করা। এতে global কাজের জন্য confidence বাড়বে।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="soft-card rounded-[24px] p-6">
+                        <h3 class="text-xl font-bold text-stone-900">সাপ্তাহিক checklist</h3>
+                        <ul class="mt-4 space-y-3 text-sm text-stone-700">
+                            <li class="rounded-2xl bg-teal-50 p-4 border border-teal-100">১টি mini project বা project update publish করুন</li>
+                            <li class="rounded-2xl bg-orange-50 p-4 border border-orange-100">১ দিন পুরনো কাজ review করুন এবং ভুল লিখে রাখুন</li>
+                            <li class="rounded-2xl bg-stone-50 p-4 border border-stone-200">১ ঘণ্টা LinkedIn / portfolio / profile update করুন</li>
+                            <li class="rounded-2xl bg-white p-4 border border-stone-200">১টি নতুন prompt / AI workflow test করুন</li>
+                        </ul>
+                    </div>
+
+                    <div class="soft-card rounded-[24px] p-6">
+                        <h3 class="text-xl font-bold text-stone-900">যা একদম এড়িয়ে চলবেন</h3>
+                        <ul class="mt-4 space-y-3 text-sm text-stone-700">
+                            <li>আজ web, কাল graphics, পরশু video editing - এভাবে direction বদলানো</li>
+                            <li>শুধু course finish করাকে progress মনে করা</li>
+                            <li>নিজের কাজ publish না করা এবং feedback না নেওয়া</li>
+                            <li>রাত জেগে অসুস্থ হয়ে পড়া, তারপর কয়েকদিন gap দেওয়া</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const yearData = {
+            1: {
+                badge: "ক্লাস ৯ / শুরু পর্যায়",
+                title: "১ম বছর: নিজেকে গুছিয়ে ভিত্তি শক্ত করা",
+                intro: "এই বছরটি direction fix করার। goal হলো confidence build করা, computer basics আয়ত্ত করা এবং কোন skill আপনার জন্য naturally ভালো fit হতে পারে তা বোঝা।",
+                points: [
+                    "Typing, file management, browser research, Gmail, Google Docs, ChatGPT - এই basic digital tools ভালোভাবে ব্যবহার শিখুন।",
+                    "১-২ মাস করে web design, digital marketing, UI/UX - এই direction গুলো taste করে দেখুন; কিন্তু বছর শেষে ১টিতেই focus করুন।",
+                    "ইংরেজি reading ও listening-এর অভ্যাস শুরু করুন। perfect grammar দরকার নেই, বোঝা এবং communicate করা দরকার।",
+                    "BOU-এর পড়াশোনা minimum steady pace-এ চালিয়ে যান যাতে certificate track ভেঙে না যায়।"
+                ],
+                focus: "বছর শেষে আপনার পরিষ্কার উত্তর থাকা উচিত: আমি কোন skill-এ আগামী ২ বছর গভীরভাবে ঢুকব?"
+            },
+            2: {
+                badge: "ক্লাস ১০ / skill build পর্যায়",
+                title: "২য় বছর: একটি core skill-এ গভীরভাবে ঢোকা",
+                intro: "এখন broad exploration বন্ধ। এই বছর থেকে disciplined learning শুরু হবে। আপনি যে skill বেছে নিয়েছেন, সেটাকে market-ready foundation-এ নিয়ে যেতে হবে।",
+                points: [
+                    "Frontend নিলে HTML, CSS, JavaScript এবং responsive UI-তে ভালো grip নিন। পরে React বা Next.js শুরু করুন।",
+                    "Marketing নিলে content strategy, funnels, email, basic analytics এবং AI-assisted workflow শিখুন।",
+                    "Design নিলে Figma, layout, typography, color system, mobile-first thinking এবং case study তৈরি করুন।",
+                    "প্রতি ২-৩ সপ্তাহে ১টি ছোট project বানান। কেবল tutorial follow না করে নিজের version তৈরি করুন।",
+                    "SSC exam-এর আগের সময়ে academic focus সাময়িক বাড়ান, তবে skill practice পুরোপুরি বন্ধ করবেন না।"
+                ],
+                focus: "বছর শেষে আপনার অন্তত 4-6টি ছোট project এবং একটি পরিষ্কার learning path থাকা উচিত।"
+            },
+            3: {
+                badge: "HSC ১ম বর্ষ / portfolio পর্যায়",
+                title: "৩য় বছর: প্রমাণযোগ্য কাজ ও income শুরু",
+                intro: "এখন আর শুধু শেখা না, দেখানোর সময়। portfolio, LinkedIn, GitHub বা case study page বানিয়ে নিজেকে market-এ visible করতে হবে।",
+                points: [
+                    "আপনার সেরা 3-4টি কাজ polished করে একটি portfolio site বা presentation format-এ সাজান।",
+                    "Fiverr, Upwork, LinkedIn বা Facebook community-তে ছোট client কাজের চেষ্টা শুরু করুন।",
+                    "প্রথম income ছোট হলেও সমস্যা নেই; লক্ষ্য হলো real client interaction শেখা।",
+                    "Feedback collect করুন: কোথায় delay হয়, কোথায় communication weak, কোথায় output average লাগছে।",
+                    "এই সময়ে AI ব্যবহার করে speed বাড়াতে শিখুন, কিন্তু output যাচাই করা ও refine করা নিজের দায়িত্বে রাখুন।"
+                ],
+                focus: "বছর শেষে আপনার real-world কাজের অভিজ্ঞতা, testimonials বা অন্তত কয়েকটি serious portfolio project থাকা উচিত।"
+            },
+            4: {
+                badge: "HSC ২য় বর্ষ / scale পর্যায়",
+                title: "৪র্থ বছর: stable income এবং career setup",
+                intro: "এখন আপনি beginner নন। এই বছরটির লক্ষ্য হলো higher-quality client, remote job opportunity এবং personal brand তৈরি করা।",
+                points: [
+                    "Freelancing থেকে premium client বা monthly retainer model-এর দিকে যাওয়ার চেষ্টা করুন।",
+                    "Remote job board, LinkedIn outreach, direct proposal - সব জায়গায় consistent apply করুন।",
+                    "নিজের process লিখে ফেলুন: client onboarding, delivery checklist, revision system, AI workflow।",
+                    "আপনার কাজ নিয়ে social post, tutorial snippet বা case study publish করে authority build করুন।",
+                    "HSC শেষ করে certificate-কে backup হিসেবে রাখুন, কিন্তু skill-based identity-কে প্রধান শক্তি বানান।"
+                ],
+                focus: "বছর শেষে লক্ষ্য হবে: আপনি যেন প্রমাণ করতে পারেন যে আপনি skill দিয়ে নিয়মিত value create করতে পারেন।"
+            }
+        };
+
+        function renderYear(year) {
+            const data = yearData[year];
+            const display = document.getElementById('year-content-display');
+
+            display.innerHTML = `
+                <div class="animate-fade-in">
+                    <span class="inline-flex rounded-full bg-teal-100 px-4 py-2 text-sm font-semibold text-teal-800">${data.badge}</span>
+                    <h3 class="mt-4 text-3xl font-bold text-stone-900">${data.title}</h3>
+                    <p class="mt-4 text-stone-700 leading-8">${data.intro}</p>
+                    <div class="mt-6 rounded-[24px] bg-stone-50 p-5 md:p-6 border border-stone-200">
+                        <h4 class="text-lg font-bold text-stone-900">এই বছরের কাজ</h4>
+                        <ul class="mt-4 space-y-3 text-stone-700">
+                            ${data.points.map(point => `<li class="rounded-2xl bg-white px-4 py-3 border border-stone-200">${point}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="mt-5 rounded-[22px] border border-orange-100 bg-orange-50 px-5 py-4">
+                        <p class="text-sm font-semibold text-orange-700">Year-end checkpoint</p>
+                        <p class="mt-1 text-stone-700">${data.focus}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showYearDetails(year) {
+            document.querySelectorAll('.year-button').forEach((button, index) => {
+                if (index + 1 === year) {
+                    button.classList.add('year-active');
+                } else {
+                    button.classList.remove('year-active');
+                }
+            });
+
+            renderYear(year);
+        }
+
+        function switchTab(tabId) {
+            ['roadmap', 'skills', 'routine'].forEach(section => {
+                document.getElementById(`section-${section}`).classList.add('hidden');
+                document.getElementById(`tab-${section}`).classList.remove('tab-active');
+                document.getElementById(`tab-${section}`).classList.add('text-stone-600');
+            });
+
+            document.getElementById(`section-${tabId}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabId}`).classList.add('tab-active');
+            document.getElementById(`tab-${tabId}`).classList.remove('text-stone-600');
+
+            if (tabId === 'skills' && !window.chartInitialized) {
+                initChart();
+                window.chartInitialized = true;
+            }
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('skillChart').getContext('2d');
+
+            new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [
+                        {
+                            label: 'ভালো সম্ভাবনার skill',
+                            data: [
+                                { x: 28, y: 88, r: 28, label: 'Frontend Dev' },
+                                { x: 22, y: 82, r: 24, label: 'UI/UX Design' },
+                                { x: 35, y: 78, r: 22, label: 'Digital Marketing' },
+                                { x: 40, y: 72, r: 20, label: 'Automation + Analytics' }
+                            ],
+                            backgroundColor: 'rgba(15, 118, 110, 0.58)',
+                            borderColor: 'rgb(15, 118, 110)'
+                        },
+                        {
+                            label: 'উচ্চ ঝুঁকির skill zone',
+                            data: [
+                                { x: 86, y: 34, r: 16, label: 'Data Entry' },
+                                { x: 82, y: 39, r: 18, label: 'Generic Copywriting' },
+                                { x: 74, y: 43, r: 17, label: 'Basic Template Graphics' }
+                            ],
+                            backgroundColor: 'rgba(234, 88, 12, 0.58)',
+                            borderColor: 'rgb(234, 88, 12)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    family: "'Hind Siliguri', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.raw.label} | AI risk: ${context.raw.x}% | Scope: ${context.raw.y}/100`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            min: 0,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'AI দ্বারা replace হওয়ার ঝুঁকি',
+                                font: {
+                                    family: "'Hind Siliguri', sans-serif"
+                                }
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'আয়, scope ও growth সম্ভাবনা',
+                                font: {
+                                    family: "'Hind Siliguri', sans-serif"
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        showYearDetails(1);
+    </script>
+</body>
+</html>

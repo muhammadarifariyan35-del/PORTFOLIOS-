@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghibli Image Studio</title>
+  <style>
+    :root {
+      --bg: #f6eedf;
+      --bg-deep: #e6d7b9;
+      --panel: rgba(255, 251, 245, 0.78);
+      --text: #1f3029;
+      --muted: #5f6d64;
+      --accent: #2e7a66;
+      --accent-soft: #d7efe6;
+      --gold: #d7a552;
+      --line: rgba(31, 48, 41, 0.12);
+      --shadow: 0 22px 60px rgba(60, 72, 52, 0.18);
+      --danger: #8b4e2d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 26%),
+        radial-gradient(circle at top right, rgba(140, 190, 158, 0.18), transparent 28%),
+        linear-gradient(135deg, var(--bg) 0%, #f0e2c8 50%, var(--bg-deep) 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 26px 0 44px;
+    }
+
+    .hero,
+    .workspace,
+    .footer-note {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -50px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(215, 165, 82, 0.42), transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(46, 122, 102, 0.12);
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0 12px;
+      max-width: 10ch;
+      font-size: clamp(2.9rem, 6vw, 5.4rem);
+      line-height: 0.94;
+    }
+
+    .lead {
+      max-width: 66ch;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .workspace {
+      margin-top: 22px;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: minmax(290px, 380px) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .controls,
+    .preview {
+      min-width: 0;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid var(--line);
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 1.12rem;
+    }
+
+    .upload-box {
+      display: block;
+      padding: 18px;
+      border-radius: 22px;
+      border: 2px dashed rgba(46, 122, 102, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .upload-box:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .upload-box strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .upload-box span,
+    .field-note,
+    .meta,
+    .footer-note p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .preset-btn,
+    .action-btn,
+    .view-btn {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .preset-btn {
+      text-align: left;
+      padding: 13px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--text);
+    }
+
+    .preset-btn.active {
+      background: linear-gradient(135deg, rgba(46, 122, 102, 0.18), rgba(215, 239, 230, 0.85));
+      box-shadow: 0 12px 28px rgba(46, 122, 102, 0.14);
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 0.98rem;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.86);
+      padding: 13px 14px;
+      font: inherit;
+      color: var(--text);
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .switch input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .action-btn {
+      padding: 14px 16px;
+      border-radius: 18px;
+    }
+
+    .action-btn.primary {
+      background: linear-gradient(135deg, var(--accent), #4ea68b);
+      color: #fffaf4;
+      box-shadow: 0 14px 28px rgba(46, 122, 102, 0.24);
+    }
+
+    .action-btn.secondary {
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .action-btn:hover,
+    .preset-btn:hover,
+    .view-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .action-btn:disabled {
+      cursor: wait;
+      opacity: 0.72;
+      transform: none;
+    }
+
+    .status {
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(215, 165, 82, 0.24);
+      background: rgba(215, 165, 82, 0.12);
+      color: #755821;
+      line-height: 1.55;
+    }
+
+    .status.error {
+      color: var(--danger);
+      background: rgba(139, 78, 45, 0.08);
+      border-color: rgba(139, 78, 45, 0.2);
+    }
+
+    .preview-card {
+      overflow: hidden;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+    }
+
+    .preview-top {
+      padding: 16px 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .view-toggle {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(46, 122, 102, 0.09);
+    }
+
+    .view-btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .view-btn.active {
+      background: #fffdf8;
+      color: var(--text);
+      box-shadow: 0 4px 12px rgba(31, 48, 41, 0.1);
+    }
+
+    .image-stage {
+      padding: 18px;
+    }
+
+    .image-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 420px;
+      background:
+        linear-gradient(135deg, rgba(215, 239, 230, 0.45), rgba(255, 255, 255, 0.9)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.55),
+          rgba(255, 255, 255, 0.55) 14px,
+          rgba(246, 238, 223, 0.7) 14px,
+          rgba(246, 238, 223, 0.7) 28px
+        );
+      border: 1px solid rgba(31, 48, 41, 0.08);
+      display: grid;
+      place-items: center;
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+      background: #f8f3ea;
+    }
+
+    .image-frame img.visible {
+      display: block;
+    }
+
+    .placeholder {
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      max-width: 36ch;
+      line-height: 1.6;
+    }
+
+    .meta {
+      margin-top: 12px;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      padding: 20px 22px;
+    }
+
+    .footer-note strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 940px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 18px, 1180px);
+      }
+
+      .hero,
+      .workspace,
+      .footer-note {
+        border-radius: 22px;
+      }
+
+      .hero,
+      .workspace,
+      .footer-note {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .preset-grid,
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .image-frame {
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="eyebrow">OpenAI Image Edit App</span>
+      <h1>Turn a normal photo into a stronger Ghibli-style image</h1>
+      <p class="lead">
+        This version uses the OpenAI image editing API instead of browser-only filters. Upload your photo, pick a mood, add a little guidance, and generate a much better painted anime-style result.
+      </p>
+    </section>
+
+    <section class="workspace">
+      <aside class="controls">
+        <div class="stack">
+          <div class="card">
+            <h2 class="section-title">1. Upload your photo</h2>
+            <label class="upload-box" for="imageInput">
+              <strong>Select image</strong>
+              <span>JPG, PNG, or WebP. Clean faces, bright light, and simple backgrounds usually give the best result.</span>
+            </label>
+            <input id="imageInput" type="file" accept="image/*" />
+            <p id="fileMeta" class="meta">No image selected yet.</p>
+          </div>
+
+          <div class="card">
+            <h2 class="section-title">2. Pick a visual mood</h2>
+            <div class="preset-grid">
+              <button class="preset-btn active" data-preset="meadow">Meadow Light</button>
+              <button class="preset-btn" data-preset="sunset">Golden Sunset</button>
+              <button class="preset-btn" data-preset="forest">Forest Calm</button>
+              <button class="preset-btn" data-preset="dream">Cloud Dream</button>
+            </div>
+          </div>
+
+          <div class="card stack">
+            <h2 class="section-title">3. Guide the result</h2>
+            <div class="field">
+              <label for="subjectInput">Important subject details</label>
+              <input id="subjectInput" type="text" placeholder="Example: keep the red saree, gentle smile, and river background" />
+            </div>
+            <div class="field">
+              <label for="detailsInput">Extra creative prompt</label>
+              <textarea id="detailsInput" placeholder="Example: add soft watercolor clouds, richer green trees, and warm morning light"></textarea>
+            </div>
+            <div class="toggle-row">
+              <span class="field-note">Keep identity and pose close to the original photo.</span>
+              <label class="switch">
+                <input id="identityToggle" type="checkbox" checked />
+                <span>Preserve identity</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="generateBtn" class="action-btn primary">Generate Image</button>
+            <button id="downloadBtn" class="action-btn secondary" disabled>Download PNG</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="preview">
+        <div id="status" class="status">
+          Checking server connection. Add your OpenAI API key in `.env`, run the Node server, then generate from here.
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <h2 class="section-title" style="margin: 0;">Preview</h2>
+            <div class="view-toggle">
+              <button class="view-btn active" data-view="result">Result</button>
+              <button class="view-btn" data-view="original">Original</button>
+            </div>
+          </div>
+          <div class="image-stage">
+            <div class="image-frame">
+              <div id="placeholder" class="placeholder">
+                Upload an image on the left, then generate a new stylized version with the OpenAI image editing API.
+              </div>
+              <img id="originalPreview" alt="Original uploaded preview" />
+              <img id="resultPreview" alt="Generated stylized preview" />
+            </div>
+            <p id="requestMeta" class="meta"></p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="footer-note">
+      <p>
+        <strong>Note:</strong> This app now uses a real backend so your API key stays on the server. If you want, the next improvement can be history, multiple variations, or stronger prompt presets for portrait, wedding, or travel photos.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const imageInput = document.getElementById("imageInput");
+    const generateBtn = document.getElementById("generateBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const statusBox = document.getElementById("status");
+    const fileMeta = document.getElementById("fileMeta");
+    const requestMeta = document.getElementById("requestMeta");
+    const originalPreview = document.getElementById("originalPreview");
+    const resultPreview = document.getElementById("resultPreview");
+    const placeholder = document.getElementById("placeholder");
+    const subjectInput = document.getElementById("subjectInput");
+    const detailsInput = document.getElementById("detailsInput");
+    const identityToggle = document.getElementById("identityToggle");
+    const presetButtons = [...document.querySelectorAll(".preset-btn")];
+    const viewButtons = [...document.querySelectorAll(".view-btn")];
+
+    let selectedFile = null;
+    let activePreset = "meadow";
+    let activeView = "result";
+    let generatedImageUrl = "";
+
+    function setStatus(message, type = "info") {
+      statusBox.textContent = message;
+      statusBox.classList.toggle("error", type === "error");
+    }
+
+    function setActivePreset(preset) {
+      activePreset = preset;
+      presetButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.preset === preset);
+      });
+    }
+
+    function switchView(view) {
+      activeView = view;
+      viewButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.view === view);
+      });
+
+      if (view === "original") {
+        originalPreview.classList.toggle("visible", Boolean(originalPreview.src));
+        resultPreview.classList.remove("visible");
+      } else {
+        resultPreview.classList.toggle("visible", Boolean(resultPreview.src));
+        originalPreview.classList.remove("visible");
+      }
+    }
+
+    function showPlaceholder(show) {
+      placeholder.style.display = show ? "block" : "none";
+    }
+
+    async function checkHealth() {
+      try {
+        const response = await fetch("/api/health");
+        const data = await response.json();
+
+        if (!data.ok) {
+          setStatus("Server is not responding correctly.", "error");
+          return;
+        }
+
+        if (!data.hasApiKey) {
+          setStatus("Server found, but OPENAI_API_KEY is missing in `.env`.", "error");
+          return;
+        }
+
+        setStatus("Server is ready. Upload a photo and generate a new image.");
+      } catch (_error) {
+        setStatus("Could not reach the server. Start it with `npm start` first.", "error");
+      }
+    }
+
+    imageInput.addEventListener("change", (event) => {
+      const [file] = event.target.files;
+      if (!file) {
+        return;
+      }
+
+      selectedFile = file;
+      generatedImageUrl = "";
+      downloadBtn.disabled = true;
+      requestMeta.textContent = "";
+
+      const previewUrl = URL.createObjectURL(file);
+      originalPreview.src = previewUrl;
+      fileMeta.textContent = `${file.name} · ${(file.size / (1024 * 1024)).toFixed(2)} MB`;
+      showPlaceholder(false);
+      switchView("original");
+      setStatus("Photo selected. Add prompt guidance if you want, then generate.");
+    });
+
+    presetButtons.forEach((button) => {
+      button.addEventListener("click", () => setActivePreset(button.dataset.preset));
+    });
+
+    viewButtons.forEach((button) => {
+      button.addEventListener("click", () => switchView(button.dataset.view));
+    });
+
+    generateBtn.addEventListener("click", async () => {
+      if (!selectedFile) {
+        setStatus("Please choose an image first.", "error");
+        return;
+      }
+
+      generateBtn.disabled = true;
+      downloadBtn.disabled = true;
+      setStatus("Generating with OpenAI. This can take a little time depending on the image.");
+
+      const formData = new FormData();
+      formData.append("photo", selectedFile);
+      formData.append("preset", activePreset);
+      formData.append("subject", subjectInput.value.trim());
+      formData.append("details", detailsInput.value.trim());
+      formData.append("preserveIdentity", String(identityToggle.checked));
+
+      try {
+        const response = await fetch("/api/transform", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Generation failed.");
+        }
+
+        generatedImageUrl = data.image;
+        resultPreview.src = generatedImageUrl;
+        showPlaceholder(false);
+        switchView("result");
+        downloadBtn.disabled = false;
+        requestMeta.textContent = data.requestId
+          ? `OpenAI request id: ${data.requestId}`
+          : "Image generated successfully.";
+        setStatus("Image generated. Compare original and result, then download if you like it.");
+      } catch (error) {
+        setStatus(error.message, "error");
+      } finally {
+        generateBtn.disabled = false;
+      }
+    });
+
+    downloadBtn.addEventListener("click", () => {
+      if (!generatedImageUrl) {
+        return;
+      }
+
+      const anchor = document.createElement("a");
+      anchor.href = generatedImageUrl;
+      anchor.download = "ghibli-style-result.png";
+      anchor.click();
+    });
+
+    checkHealth();
+  </script>
+</body>
+</html>

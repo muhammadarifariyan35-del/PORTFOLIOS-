@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+.nav{
+  display: flex;
+  background-color: #111;
+  color: white;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.nav2{
+  display: flex;
+  gap: 19px;
+  cursor: pointer;
+}
+.nav2 h3{
+  color:rgb(73, 205, 209);
+}

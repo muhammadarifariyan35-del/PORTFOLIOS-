@@ -1,0 +1,56 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body, html{
+    height: 100%;
+}
+body{
+    background-image: url(download3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+#containar{
+    background: rgba(255, 255, 255, 0.1.5);
+    box-shadow: 0 8px 32px 0 oklch(33.68% 0.00004 271.152);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    padding: 25px 15px;
+    width: 85%;
+    text-align: center;
+}
+#containar p{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(25, 25, 25);
+    margin-bottom: 10px;
+}
+#containar h4{
+    background: rgb(26, 25, 25);
+    display: inline-block;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+#containar button{
+    display: block;
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    margin: 10px auto 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: rgba(17, 94, 70, 0.711);
+}

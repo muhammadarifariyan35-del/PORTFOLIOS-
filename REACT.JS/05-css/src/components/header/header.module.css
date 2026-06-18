@@ -1,0 +1,11 @@
+.btn{
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: rgba(151, 204, 27, 0.443);
+  border: none;
+  border-radius: 7px;
+}
+.div{
+  background-color: black;
+  color: white;
+}

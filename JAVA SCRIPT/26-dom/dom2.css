@@ -1,0 +1,22 @@
+*{
+    border-radius: 5px;
+}
+.newStyle{
+    background-color: blueviolet;
+    height: 100px;
+    width: 80%;
+}
+.newpera{
+    color: darkolivegreen;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: xx-large;
+}
+.h5class{
+    background-color: bisque;
+    height: 90px;
+}
+#parent p{
+    background-color: brown;
+    height: 50px;
+}

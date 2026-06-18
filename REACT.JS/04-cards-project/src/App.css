@@ -1,0 +1,155 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html,body{
+    min-height: 100vh;
+  background-attachment: fixed;
+  background-image:url(https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg);
+  background-size: cover;
+  background-position: center;
+
+}
+
+.parent{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 4px;
+}
+
+
+.card{
+    height: 330px;
+    width: 300px;
+    padding: 25px;
+    background: rgba(8, 85, 109, 0.904);
+    backdrop-filter: blur(9px);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.433);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
+/*! card top */
+
+.card .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.card .top img{
+    width:70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid rgba(192, 192, 192, 0.559);
+}
+.card .top a{
+    padding: 6px 15px;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.445);
+    border: none;
+    backdrop-filter: blur (1px);
+    color: #dddddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.card .top a:hover{
+    background-color: rgba(255, 255, 255, 0.208);
+}
+
+
+
+
+
+
+/*! card center */
+
+
+.card .center h3{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.card .center h3 span{
+    font-size: x-small;
+    color: #dddddd;
+    letter-spacing: 0.2cap;
+}
+.card .center h2{
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(246, 163, 9);
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    line-height: 25px;
+}
+
+
+
+/*? .center buttom  */
+
+
+.card .center .center_buttom{
+    display: inline-flex ;
+    
+}
+.card .center .center_buttom h4{
+    background-color: #dddddd7d;
+    margin-right: 10px;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 2px 6px;
+    
+    
+}
+
+
+
+
+/*! button  */
+
+.card .buttom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid orange ;
+    padding-top: 10px ;
+    border-radius: 2px;
+    
+}
+.card .buttom h3{
+    font-size: 16px;
+    display: block;
+
+    letter-spacing: 1.5px;
+}
+.card .buttom p{
+    display: block;
+  
+    font-size: 15px;
+    line-height: 16px;
+    letter-spacing: .4px;
+}
+.card .buttom button{
+   text-transform: capitalize;
+    padding: 2px 10px;
+    font-size: larger;
+    border: none;
+    font-weight: 700;
+    background-color: #dddddd44;
+    cursor: pointer;
+}

@@ -1,0 +1,68 @@
+body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .child{
+       background-color: brown;
+       height: 50px;
+       width: 50px;
+       padding:17px;
+      
+       text-align: center;
+       display: inline-block;
+       border-radius: 5px;
+
+        }
+        .main{
+            margin-top: 10px;
+            margin-left:10px ;
+        }
+        .child:nth-child(even){
+            background-color: rgb(153, 20, 220);
+        }
+        .child:first-child{
+            background-color: black;
+        }
+        .child:last-child{
+            background-color: beige;
+        }
+        .child:nth-child(odd){
+            background-color: rgb(43, 220, 226);
+        }
+        .child:nth-last-child(){
+            background-color: crimson;
+        }
+        p{
+            font-size: larger;
+        }
+        form{
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        form input[type="search"]{
+           border: 1px solid #ddd;
+            padding: 15px 25px;
+            font-size: x-large;
+            border-radius: 7px;
+            float: left;
+        }
+        form input[type="button"]{
+            font-size: x-large;
+            border-radius: 7px;
+            padding: 15px 35px;
+            background-color: chocolate;
+            color: rgb(0, 0, 0);
+            text-transform: capitalize;
+            border: 1px solid chocolate;
+            cursor: pointer;
+            display: none;
+            
+        }
+         form input[type="button"]:hover{
+            background-color: burlywood;
+            border: 1px solid burlywood;
+         }
+         form input:not(:placeholder-shown) + input[type="button"]{
+            display: block;
+            
+         }

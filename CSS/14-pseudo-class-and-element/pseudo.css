@@ -1,0 +1,47 @@
+ *{
+            font-size: xx-large;
+        }
+        a:hover{
+            color: red;
+        }
+        a:visited{
+            font-size: xx-large;
+        }
+        a:focus{}
+        li:second{
+            color: aqua;
+        }
+        li:nth-child(3n+2){
+            color:#f1c40f ;
+        }
+        body{
+            background: aquamarine;
+            background-image: url(bulding.jpg);
+            background-size: 200px 200px;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+        
+        }
+         body::before{
+            content: 'element';
+            color: aliceblue;
+            background-image: url(bulding.jpg);
+            background-size: 100px 100px;
+        }
+        body::after{
+            content: 'element';
+            color: aliceblue;
+            background-image: url(bulding.jpg);
+            background-size: 100px 100px;
+        }
+        p::first-line{
+            font-size: 60px;
+            color: #2c3e50;
+        }
+        p::first-letter{
+            font-size: 90px;
+        }
+        body::selection{
+            background-color: #eb3b5b89;
+        }

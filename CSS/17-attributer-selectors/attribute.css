@@ -1,0 +1,38 @@
+
+
+         a{
+            color: aqua;
+        }
+        a[target]{
+            font-size: x-large;
+        }
+        a[target="_blank"]{
+            text-decoration: none;
+        }
+        a[title~="pro"]{
+            font-size: 50px;
+        }
+        a[title~="bd"]{
+            color: black;
+        }
+        div[id|="child"]{
+            height: 300px;
+            width: 300px;
+            background-color: blueviolet;
+            margin-top: 4px; 
+        }
+        div[id^="child"]{
+            height: 300px;
+            width: 300px;
+            background-color:#27ae60 ;
+            margin-bottom: 4px;
+        }
+        div[id$="zero"]{
+            background-color: cadetblue;
+        }
+        div[id*="k"]{
+            background-color:#34495e ;
+        }
+
+
+    

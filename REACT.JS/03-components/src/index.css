@@ -1,0 +1,31 @@
+.main{
+  margin: 20px;
+  background-color: aquamarine;
+  padding: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  
+}
+.main h1{
+  background-color: rgba(0, 0, 0, 0.655);
+  border-radius: 10px;
+  padding: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+}
+.main p{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+}
+.nave {
+  background-color: bisque;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+}
+.nave p{
+color: rgba(4, 89, 247, 0.778);
+font-size: x-large;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -1,0 +1,83 @@
+ঠিক আছে, আমি একদম সহজ বাংলায় ধাপে ধাপে বলে দিচ্ছি যাতে আপনার কনফিগারেশনটি কাজ শুরু করে। আপনি নিচের ধাপগুলো একে একে অনুসরণ করুন:
+
+### ধাপ ১: VS Code-এর সেটিংস ঠিক করা (সবচেয়ে জরুরি)
+
+১. কিবোর্ড থেকে **Ctrl + Shift + P** চাপুন।
+২. বক্সে লিখুন **"Open User Settings (JSON)"** এবং এটি ওপেন করুন।
+৩. সেখানে অনেক কোড থাকতে পারে, আপনি একদম শেষ বন্ধনী `}` এর ঠিক আগে নিচের এই অংশটুকু যোগ করুন (যদি আগে থেকে না থাকে):
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  }
+}
+
+```
+
+### ধাপ ২: টার্মিনালে প্যাকেজ ইন্সটল করা
+
+আপনার কোডিং করার ফোল্ডারটি (Project Folder) টার্মিনালে ওপেন করুন এবং নিচের কমান্ডটি দিয়ে এন্টার দিন। এটি ESLint এবং Prettier-কে একে অপরের সাথে কাজ করতে সাহায্য করবে:
+
+```bash
+npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
+
+```
+
+### ধাপ ৩: `.eslintrc.json` ফাইলটি নতুন করে লেখা
+
+আপনার প্রজেক্টের `.eslintrc.json` ফাইলে নিচের কোডটি হুবহু বসিয়ে দিন:
+
+```json
+{
+  "extends": ["prettier", "airbnb-base"],
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
+  "env": {
+    "commonjs": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": 0,
+    "indent": 0,
+    "linebreak-style": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 100,
+        "tabWidth": 4,
+        "semi": true
+      }
+    ]
+  },
+  "plugins": ["prettier"]
+}
+
+```
+
+### ধাপ ৪: ESLint অনুমতি (Allow) দেয়া
+
+১. আপনার এডিটরের একদম নিচে (ডান দিকের কোণায়) দেখুন ছোট করে **ESLint** লেখা আছে কি না।
+২. যদি সেই লেখার ওপর লাল দাগ বা কোনো সতর্ক সংকেত থাকে, তবে সেখানে মাউস দিয়ে ক্লিক করুন।
+৩. আপনাকে একটি অপশন দেখাবে **"Allow Everywhere"** বা **"Enable"**, সেখানে ক্লিক করুন।
+
+---
+
+### কেন এতো কিছু করার পরেও কাজ হয় না? (টিপস)
+
+* আপনার প্রজেক্টে যদি **`package.json`** ফাইল না থাকে, তবে টার্মিনালে `npm init -y` লিখে একটি ফাইল তৈরি করে নিন।
+* নিশ্চিত করুন যে আপনি **Prettier** এবং **ESLint** নামের **VS Code Extension** দুটি ইন্সটল করেছেন।
+
+### এখন চেক করুন:
+
+একটি ফাইলে লিখুন:
+`var myName = "AI" ;` (খেয়াল করুন শেষে অনেক ফাঁকা জায়গা আছে)
+
+এবার **Ctrl + S** চাপুন। যদি এটি অটোমেটিক `const myName = 'AI';` হয়ে যায়, তবে বুঝবেন আপনার সেটআপ সফল!
+
+**এখন কি আপনার কোড সেভ করার পর পরিবর্তন হচ্ছে?** না হলে আপনার টার্মিনালে কোনো লাল রঙের এরর মেসেজ দেখাচ্ছে কি না আমাকে জানান।

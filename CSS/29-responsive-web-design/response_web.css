@@ -1,0 +1,40 @@
+.child{
+        background-color: blueviolet;
+        padding: 10px 20px;
+        margin: 10px auto;
+        border: 5px solid #40739e;
+        height: 95%;
+        width: 90%;
+        border-radius: 10px;
+        box-sizing: border-box;
+
+    }
+    h1{
+        font-size: 40px;
+        color: gold;
+        letter-spacing: 3px;
+    }
+    p{
+        font-size: larger;
+    }
+    a{
+        padding: 10px 20px;
+        background-color: #40739e;
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        font-size: x-large;
+        border-radius: 10px;
+        
+    }
+    @media all and (min-width:700px) and (max-width:800px){
+        body .child{
+            color: rgb(192, 197, 211);
+        }
+    }
+     @media all and (orientation: landscape) and (max-width:800px){
+        body .child{
+            background-color:#16a085 ;
+            color: rgb(192, 197, 211);
+        }
+    }

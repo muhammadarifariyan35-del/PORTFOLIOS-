@@ -1,0 +1,16 @@
+#imgId{
+  padding: 4px;
+  background-color: rgba(164, 173, 173, 0.692);
+
+}
+#imgId img{
+  width: 60%;
+  border-radius: 10px;
+  display: block;
+  margin: 1px auto
+  ;
+}
+p{
+  text-align: center;
+
+}

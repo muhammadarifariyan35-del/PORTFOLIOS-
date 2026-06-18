@@ -1,0 +1,190 @@
+*{
+            box-sizing: border-box;
+        }
+        body{
+             font-family: "Poppins", sans-serif;
+             margin: 0;
+
+        }
+        
+        /* header area */
+        .header_area{
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        
+       /* navigation area*/
+        .nav_area ul{
+            margin:10px 5px ;
+            padding: 3px 0;
+            padding-bottom: 6px;
+            list-style: none;
+            border-bottom: 2px solid #ddd;
+            text-align: center;
+            
+            
+        }
+        .nav_area ul li{
+            display: inline-block;
+            padding: 0 9px;
+
+            
+            
+        }
+        .nav_area ul li a{
+            text-decoration: none;
+            color: black;
+            font-size: large;
+            font-weight: 700;
+            
+        }
+        .nav_area ul li a:hover{
+            color: brown;
+        }
+
+
+        /* content area */
+        
+        .content{
+            border-bottom: 2px solid #ddd ;
+            width: 95%;
+            margin: 20px;
+            display: flex;
+            
+        }
+        .main_content{
+            width: 60%;
+            display: grid;
+            grid-template-columns: auto auto;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            column-gap: 20px;
+            
+            
+        }
+        .child_content{
+            border-radius: 10px;
+            margin: 5px;
+            background-color: #ddd;
+        }
+        .child_content img{
+            width:100% ;
+            border-radius: 10px;
+            
+
+        }
+        .child_content h2 a{
+            text-decoration: none;
+            color: black;
+            margin: 5px;
+            display: inline-block;
+        }
+        .child_content p{
+            margin: 5px;
+            display: inline-block;
+        }
+
+
+
+        .main_side_var{
+            margin: 10px;
+            margin-left: 65px;
+            border-left: 2px solid #ddd;
+            width:25% ;
+        }
+        .child_side_var{
+            margin: 5px;
+            margin-left: 40px;
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+        .child_side_var img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .child_side_var h3 a{
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            margin: 5px;
+        }
+
+
+
+        
+
+        /* footer area*/
+        .footer_area{
+            padding: 15px 0;
+            text-align:center;
+            
+            
+        }
+        
+
+
+        /* prothom_alo */
+
+        @media screen and (max-width:600px) {
+        .nav_area ul li{
+            display: inline-block;
+            padding: 0 9px 15px;
+        }
+        .body{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .content{
+            width: 96%;
+            display:block ;
+            border-bottom: 0px;
+            margin: 20px auto;
+            
+        }
+        .main_content{
+            width: 100%;
+            margin-bottom: 0px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            row-gap: 20px;
+            
+        }
+        .child_content{
+            margin: 5px 0px;
+            flex-basis: 100%;
+            
+            margin: 5px 0px;
+            background-color: #ddd;
+        }
+        .child_content img{
+            width:100% ;
+            border-radius: 10px;
+
+        }
+        .child_content h2 a{
+            text-decoration: none;
+            color: black;
+            margin: 5px;
+            display: inline-block;
+        }
+        .main_side_var{
+            width: 100%;
+            border: 0px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 0px;
+            margin-left: 0px;
+            
+        }
+        .child_side_var{
+            flex-basis: 100%;
+            margin: 5px 0px;
+            background-color: #ddd;
+        }
+
+    }

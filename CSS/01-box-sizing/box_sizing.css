@@ -1,0 +1,39 @@
+body{
+             font-family: "Poppins", sans-serif;
+             margin: 0;
+
+        }
+        .test{
+            width:600px;
+            height: 400px;
+            margin-bottom: 20px;
+            color: black;
+            margin-top: 0;
+            border: 10px solid yellow;
+        }
+        #one{
+            background-color: brown;
+            padding: 50px;
+            box-sizing: content-box;
+        }
+        #two{ 
+            background-color: cadetblue;
+            padding: 30px;
+            
+            box-sizing: border-box;
+        } 
+        #learning{
+            margin: 0 0.5%;
+            
+        }
+        #learning .child{
+            background-color: #55efc4;
+            padding: 10px 8px;
+            border-radius: 7px;
+            border: 6px solid #00b894;
+            box-sizing: border-box;
+            width: 32%;
+            float: left;
+            margin: 4px ;
+        }   
+        
