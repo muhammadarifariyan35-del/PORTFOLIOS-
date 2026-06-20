@@ -115,5 +115,36 @@ for (let x of filterIterator) {
 }
 
 const myIterator6 = Iterator.from([3, 10, 18, 30, 20]);
-let findIterator = myIterator6.find((x) => x >= 18);
-console.log(findIterator)
+let findIterator = myIterator6.find((x) => x > 18);
+console.log(findIterator);
+
+const myIterator7 = Iterator.from([3, 10, 18, 30, 20]);
+const flatMapIterator = myIterator7.flatMap((x) => [x, x * 10]);
+for (let x of flatMapIterator) {
+  console.log(x);
+}
+
+const myIterator8 = Iterator.from("123456789");
+myIterator8.forEach((x) => console.log(x));
+
+const myIterator9 = Iterator.from("123456789");
+const mapIterator = myIterator9.map((x) => x * 2);
+for (let x of mapIterator) {
+  console.log(x);
+}
+
+const myIterator10 = Iterator.from([175, 50, 25]);
+let reduceIterator = myIterator10.reduce((total, num) => total + num);
+console.log(reduceIterator);
+
+const myIterator11 = Iterator.from("123456789");
+const someIterator = myIterator11.some((x) => x > 7);
+console.log(someIterator);
+
+const myIterator12 = Iterator.from([1, 2, 3, 4, 5, 6, 7]);
+const takeIterator = myIterator12.take(5);
+for (let x of takeIterator) {
+  console.log(x);
+}
+
+//! JavaScript Generators
