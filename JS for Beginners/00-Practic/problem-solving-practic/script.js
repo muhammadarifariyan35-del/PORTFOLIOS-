@@ -495,4 +495,117 @@ function checkSpeedLimit(carDataArray) {
     return `Alert: ${carDataArray.driver} was driving at ${carDataArray.speed} KM/h. speed limit is 80 KM/h. Fine: 5000 Taka`;
   }
 }
-console.log(checkSpeedLimit(carData))
+console.log(checkSpeedLimit(carData));
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! দ্য ওটিপি জেনারেটর অ্যান্ড ফিল্টার
+
+// টাস্ক: আপনাকে একটি জেনারেটর ফাংশন বানাতে হবে যার নাম function* otpGenerator()।
+
+// এই জেনারেটরটি একটি অসীম লুপের মধ্যে প্রতিবার ৪ ডিজিটের একটি করে র্যান্ডম ওটিপি কোড (যেমন: "৪৫২১", "০৮৫২") yield করবে। (যেহেতু শুরুতে 0 থাকতে পারে, তাই ওটিপিগুলো অবশ্যই স্ট্রিং আকারে জেনারেট হতে হবে)।
+
+// এরপর এই জেনারেটর থেকে Iterator.from() দিয়ে একটি ইটারেটর অবজেক্ট তৈরি করুন।
+
+// এবার ইটারেটরের মেথড ব্যবহার করে প্রথম ৫টি ওটিপি কোডকে ফেলে দিন (.drop())।
+
+// সবশেষে, পরের ওটিপি কোডগুলোর প্রত্যেকটি সংখ্যাই ৫ এর চেয়ে বড় কি না, তা পরীক্ষা করতে কোনো মেথডটি ব্যবহার করবেন এবং সেটি কীভাবে লিখবেন?
+
+function* otpGenerator() {
+  while (true) {
+    let randomNumber = Math.floor(Math.random() * 10000);
+
+    let otp = String(randomNumber).padStart(4, "0");
+
+    yield otp;
+  }
+}
+
+const genObj = otpGenerator();
+const otpIterator = Iterator.from(genObj);
+const remainingOtps = otpIterator.drop(5);
+
+const result = remainingOtps.every((otp) => {
+  let digits = otp.split("");
+  return digits.every((digit) => Number(digit) > 5);
+});
+console.log(result);
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! শপিং কার্ট ইটারেটর
+
+//আপনার কাজ: এই অবজেক্টের ভেতর [Symbol.iterator] ব্যবহার করে এমন একটি কাস্টম ইটারেটর তৈরি করুন, যাতে আমরা যদি এই পুরো অবজেক্টের ওপর একটি সাধারণ for (const item of shoppingCart) লুপ চালাই, তবে সে শুধুমাত্র যে প্রোডাক্টগুলোর stock: true (স্টক আছে), সেগুলোর নাম প্রিন্ট করবে (যেমন আউটপুট আসবে: Laptop, Keyboard)। স্টক না থাকলে সেটিকে স্কিপ করবে।
+
+const shoppingCart = {
+  products: [
+    { name: "Laptop", price: 80000, stock: true },
+    { name: "Mouse", price: 1500, stock: false },
+    { name: "Keyboard", price: 3500, stock: true },
+    { name: "Monitor", price: 18000, stock: true },
+  ],
+
+  [Symbol.iterator]() {
+    let index = 0;
+    let product = this.products;
+
+    return {
+      next() {
+        while (index < product.length) {
+          const currentProduct = product[index];
+          index++;
+
+          if (currentProduct.stock === true) {
+            return { value: currentProduct.name, done: false };
+          }
+        }
+
+        return { done: true };
+      },
+    };
+  },
+};
+for (let item of shoppingCart) {
+  console.log(item);
+}
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! দ্য গেম বস লেভেল ট্র্যাকার
+
+// টাস্ক: একটি জেনারেটর ফাংশন তৈরি করুন যার নাম function* gameLevel()।
+
+// এই ফাংশনের ভেতরে একটি ভেরিয়েবল থাকবে let level = 1;
+
+// আপনি যখনই বাইরে থেকে প্রথমবার .next() কল করবেন, সে কনসোলে প্রিন্ট করবে "ওয়েলকাম টু লেভেল ১" এবং yield করবে লেভেলের মান।
+
+// এরপর যতবার .next() কল হবে, লেভেলের মান ১ করে বাড়বে এবং প্রতিবার কন্ডিশন চেক করবে।
+
+// যখনই লেভেলের মান বাড়তে বাড়তে ঠিক 5 নম্বর লেভেলে পৌঁছাবে, তখন সে আর yield করবে না, বরং সরাসরি return "Congratulations! You defeated the Boss!" দিয়ে জেনারেটরটি চিরতরে বন্ধ (done: true) করে দেবে।
+
+function* gameLevel(){
+   let level = 1
+  console.log(`WELCOME TO LEVEL ${level}`)
+  yield level;
+
+  while(true){
+    level ++
+
+    if(level === 5){
+      return "Congratulations! You defeated the Boss!"
+    }
+    
+    console.log(`WELCOME TO LEVEL ${level}`)
+    yield level;
+  }
+}
+
+const zoneTracker = gameLevel()
+console.log(zoneTracker.next())
+console.log(zoneTracker.next())
+console.log(zoneTracker.next())
+console.log(zoneTracker.next())
+console.log(zoneTracker.next())
