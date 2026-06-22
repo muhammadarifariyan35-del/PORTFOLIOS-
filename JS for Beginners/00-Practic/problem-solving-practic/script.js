@@ -1,4 +1,5 @@
-//! টাস্ক ১: ই-কমার্স কার্ট হিসাব
+
+//! =>01<=  টাস্ক ১: ই-কমার্স কার্ট হিসাব
 const cart = [
   { product: "Laptop", price: 1200, category: "Electronics" },
   { product: "Mouse", price: 30, category: "Electronics" },
@@ -25,7 +26,7 @@ console.log(group);
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! টাস্ক ২: ক্লাবের ডুপ্লিকেট মেম্বার ছাঁটাই
+//! =>02<=  টাস্ক ২: ক্লাবের ডুপ্লিকেট মেম্বার ছাঁটাই
 
 const footballClub = new Set(["Anik", "Tahsin", "Raju", "Afsin"]);
 const cricketClub = new Set(["Raju", "Afsin", "Sharif", "Mohib"]);
@@ -48,7 +49,7 @@ console.log(difference);
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! টাস্ক ৩: ব্যাংক অ্যাকাউন্ট ট্র্যাকার
+//! =>03<=  টাস্ক ৩: ব্যাংক অ্যাকাউন্ট ট্র্যাকার
 
 let acc1 = { owner: "Tahsin", accNo: 101 };
 let acc2 = { owner: "Afsin", accNo: 102 };
@@ -86,7 +87,7 @@ document.getElementById("demo").innerHTML = tax;
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! টাস্ক ৪: ডুপ্লিকেট রোল নাম্বার ছাঁটাই
+//! =>04<=  টাস্ক ৪: ডুপ্লিকেট রোল নাম্বার ছাঁটাই
 
 const submittedRolls = [12, 15, 12, 18, 20, 15, 22, 18, 30, 20];
 
@@ -97,7 +98,7 @@ console.log(uniqRoolSet);
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! বিদ্যুৎ বিল হিসাব করা
+//! =>05<=  বিদ্যুৎ বিল হিসাব করা
 
 // ধরে নিন, আপনি আপনার বাসার বিদ্যুৎ বিল হিসাব করার জন্য একটি ফাংশন লিখবেন।আপনার কাজ: calculateBill(units) নামে একটি ফাংশন তৈরি করুন।শর্ত (If Condition): * যদি ব্যবহৃত ইউনিট (units) ১০০ বা তার কম হয়, তবে প্রতি ইউনিটের দাম হবে ৫ টাকা।যদি ইউনিট ১০০ এর বেশি হয়, তবে প্রতি ইউনিটের দাম হবে ৯ টাকা।আউটপুট: ফাংশনটি মোট বিলের পরিমাণ ($Units \times Price$) হিসাব করে return করবে।
 function calculateBill(unit) {
@@ -114,7 +115,7 @@ console.log(calculateBill(200));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! ইউজার প্রোফাইল তৈরি
+//! =>06<=  ইউজার প্রোফাইল তৈরি
 
 const userProfile = {
   firstName: "Tahsin",
@@ -130,7 +131,7 @@ console.log(
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! জোড় সংখ্যা খুঁজে বের করা
+//! =>07<=  জোড় সংখ্যা খুঁজে বের করা
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -144,7 +145,7 @@ for (let i of numbers) {
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! বড় নাম খুঁজে বের করা
+//! =>08<=  বড় নাম খুঁজে বের করা
 
 const friends = [
   "Anik",
@@ -177,7 +178,7 @@ console.log(friends);
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! শপিং ডিসকাউন্ট ক্যালকুলেটর
+//! =>09<=  শপিং ডিসকাউন্ট ক্যালকুলেটর
 
 // ধরে নিন আপনি একটি ওয়েবসাইটের জন্য ডিসকাউন্ট সিস্টেম বানাবেন। কাস্টমার কত টাকার কেনাকাটা করল, তার ওপর ভিত্তি করে ডিসকাউন্ট দেওয়া হবে।
 function getDiscountPrice(totalAmount) {
@@ -199,7 +200,7 @@ console.log(getDiscountPrice(7000));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! অ্যারের সব সংখ্যার গড় (Average) বের করা
+//! =>10<=  অ্যারের সব সংখ্যার গড় (Average) বের করা
 
 const marks = [80, 75, 92, 85, 68];
 
@@ -217,7 +218,7 @@ console.log(avarageMarks);
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! বয়স ক্যালকুলেটর
+//! =>11<=  বয়স ক্যালকুলেটর
 
 const member = {
   name: "Arif Ariyan",
@@ -236,7 +237,7 @@ console.log(calculator(member));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! ইউজারনেম ভ্যালিডেশন
+//! =>12<=  ইউজারনেম ভ্যালিডেশন
 
 // validateUsername(username) নামে একটি ফাংশন লিখুন।
 
@@ -260,7 +261,7 @@ console.log(validateUsername("Arif Ariyan"));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! মেগা চ্যালেঞ্জ ১: মাল্টি-লেভেল ট্যাক্স ও স্যালারি ক্যালকুলেটর
+//! =>13<=  মেগা চ্যালেঞ্জ ১: মাল্টি-লেভেল ট্যাক্স ও স্যালারি ক্যালকুলেটর
 
 const employee1 = {
   name: "Arif Ariyan",
@@ -303,7 +304,7 @@ console.log(calculateNetSalary(employee2));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! মেগা চ্যালেঞ্জ ২: স্টুডেন্ট রিপোর্ট কার্ড এবং গ্রেড এভারেজ
+//! =>14<=  মেগা চ্যালেঞ্জ ২: স্টুডেন্ট রিপোর্ট কার্ড এবং গ্রেড এভারেজ
 
 const studentReport1 = {
   studentName: "Tahsin Ahmed",
@@ -368,7 +369,7 @@ console.log(generateReport(studentReport3));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! মেগা চ্যালেঞ্জ ৩: সাবস্ক্রিপশন এক্সপায়ারি অ্যালার্ট
+//! =>15<=  মেগা চ্যালেঞ্জ ৩: সাবস্ক্রিপশন এক্সপায়ারি অ্যালার্ট
 
 const users = [
   { name: "Rakib", expireYear: 2024 }, // আগের বছর
@@ -400,7 +401,7 @@ checkExpiryStatus(users);
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! মেগা চ্যালেঞ্জ ৪: ইকমার্স কার্ট ক্যালকুলেটর
+//! =>16<=  মেগা চ্যালেঞ্জ ৪: ইকমার্স কার্ট ক্যালকুলেটর
 
 const myShoppingCart = {
   customerName: "Tahsin",
@@ -437,7 +438,7 @@ console.log(calculateTotalBill(myShoppingCart));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! মেগা চ্যালেঞ্জ ৫: হসপিটাল আইসিইউ (ICU) সিট অ্যালার্ট
+//! =>17<=  মেগা চ্যালেঞ্জ ৫: হসপিটাল আইসিইউ (ICU) সিট অ্যালার্ট
 
 const icuBeds = [
   { bedNo: "ICU-101", isOccupied: true }, // রোগী আছে
@@ -476,7 +477,7 @@ console.log(checkHospitalStatus(icuBeds));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! মেগা চ্যালেঞ্জ ৬: ট্রাফিক স্পিড রাডার ও ফাইন ক্যালকুলেটর
+//! =>18<=  মেগা চ্যালেঞ্জ ৬: ট্রাফিক স্পিড রাডার ও ফাইন ক্যালকুলেটর
 
 const carData = {
   driver: "Sakib",
@@ -500,16 +501,12 @@ console.log(checkSpeedLimit(carData));
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! দ্য ওটিপি জেনারেটর অ্যান্ড ফিল্টার
+//! =>19<=  দ্য ওটিপি জেনারেটর অ্যান্ড ফিল্টার
 
 // টাস্ক: আপনাকে একটি জেনারেটর ফাংশন বানাতে হবে যার নাম function* otpGenerator()।
-
 // এই জেনারেটরটি একটি অসীম লুপের মধ্যে প্রতিবার ৪ ডিজিটের একটি করে র্যান্ডম ওটিপি কোড (যেমন: "৪৫২১", "০৮৫২") yield করবে। (যেহেতু শুরুতে 0 থাকতে পারে, তাই ওটিপিগুলো অবশ্যই স্ট্রিং আকারে জেনারেট হতে হবে)।
-
 // এরপর এই জেনারেটর থেকে Iterator.from() দিয়ে একটি ইটারেটর অবজেক্ট তৈরি করুন।
-
 // এবার ইটারেটরের মেথড ব্যবহার করে প্রথম ৫টি ওটিপি কোডকে ফেলে দিন (.drop())।
-
 // সবশেষে, পরের ওটিপি কোডগুলোর প্রত্যেকটি সংখ্যাই ৫ এর চেয়ে বড় কি না, তা পরীক্ষা করতে কোনো মেথডটি ব্যবহার করবেন এবং সেটি কীভাবে লিখবেন?
 
 function* otpGenerator() {
@@ -535,7 +532,7 @@ console.log(result);
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! শপিং কার্ট ইটারেটর
+//! =>20<=  শপিং কার্ট ইটারেটর
 
 //আপনার কাজ: এই অবজেক্টের ভেতর [Symbol.iterator] ব্যবহার করে এমন একটি কাস্টম ইটারেটর তৈরি করুন, যাতে আমরা যদি এই পুরো অবজেক্টের ওপর একটি সাধারণ for (const item of shoppingCart) লুপ চালাই, তবে সে শুধুমাত্র যে প্রোডাক্টগুলোর stock: true (স্টক আছে), সেগুলোর নাম প্রিন্ট করবে (যেমন আউটপুট আসবে: Laptop, Keyboard)। স্টক না থাকলে সেটিকে স্কিপ করবে।
 
@@ -574,38 +571,197 @@ for (let item of shoppingCart) {
 //console-e ব্যবধান তৈরি করতে।
 console.log(" ");
 
-//! দ্য গেম বস লেভেল ট্র্যাকার
+//! =>21<=  দ্য গেম বস লেভেল ট্র্যাকার
 
 // টাস্ক: একটি জেনারেটর ফাংশন তৈরি করুন যার নাম function* gameLevel()।
-
 // এই ফাংশনের ভেতরে একটি ভেরিয়েবল থাকবে let level = 1;
-
 // আপনি যখনই বাইরে থেকে প্রথমবার .next() কল করবেন, সে কনসোলে প্রিন্ট করবে "ওয়েলকাম টু লেভেল ১" এবং yield করবে লেভেলের মান।
-
 // এরপর যতবার .next() কল হবে, লেভেলের মান ১ করে বাড়বে এবং প্রতিবার কন্ডিশন চেক করবে।
-
 // যখনই লেভেলের মান বাড়তে বাড়তে ঠিক 5 নম্বর লেভেলে পৌঁছাবে, তখন সে আর yield করবে না, বরং সরাসরি return "Congratulations! You defeated the Boss!" দিয়ে জেনারেটরটি চিরতরে বন্ধ (done: true) করে দেবে।
 
-function* gameLevel(){
-   let level = 1
-  console.log(`WELCOME TO LEVEL ${level}`)
+function* gameLevel() {
+  let level = 1;
+  console.log(`WELCOME TO LEVEL ${level}`);
   yield level;
 
-  while(true){
-    level ++
+  while (true) {
+    level++;
 
-    if(level === 5){
-      return "Congratulations! You defeated the Boss!"
+    if (level === 5) {
+      return "Congratulations! You defeated the Boss!";
     }
-    
-    console.log(`WELCOME TO LEVEL ${level}`)
+
+    console.log(`WELCOME TO LEVEL ${level}`);
     yield level;
   }
 }
 
-const zoneTracker = gameLevel()
-console.log(zoneTracker.next())
-console.log(zoneTracker.next())
-console.log(zoneTracker.next())
-console.log(zoneTracker.next())
-console.log(zoneTracker.next())
+const zoneTracker = gameLevel();
+console.log(zoneTracker.next());
+console.log(zoneTracker.next());
+console.log(zoneTracker.next());
+console.log(zoneTracker.next());
+console.log(zoneTracker.next());
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! =>22<=  একদম সহজ (The Word Speller)
+
+// টাস্ক: আপনাকে একটি জেনারেটর ফাংশন বানাতে হবে যার নাম function* spellWord(word)।
+// এই ফাংশনটি প্যারামিটার হিসেবে যেকোনো একটি নাম বা স্ট্রিং নেবে (যেমন: "JS")।
+// সে লুপ চালিয়ে ওই শব্দের একটা একটা করে অক্ষর yield করবে।
+
+function* speallword(word) {
+  for (let char of word) {
+    yield char;
+  }
+}
+const speller = speallword("function spellWord(word)।");
+for (let char of speller) {
+  console.log(char);
+}
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! =>23<=  The Step Counter
+
+// টাস্ক: আমরা জেনারেটর দিয়ে ১, ২, ৩ বা ১০, ২০, ৩০ এর সিরিজ দেখেছি। এবার আপনাকে এমন একটি জেনারেটর বানাতে হবে যা ইউজারের ইচ্ছামতো গ্যাপ দিয়ে সংখ্যা তৈরি করবে। ফাংশনটির নাম দিন function* customCounter(start, step)।
+// start হলো সে কোন সংখ্যা থেকে গোনা শুরু করবে।
+// step হলো সে কত ঘর লাফ দিয়ে দিয়ে সামনে এগোবে।
+// এটি একটি অসীম লুপের মধ্যে কাজ করবে।
+
+function* customCounter(start, step) {
+  let current = start;
+  while (true) {
+    yield current;
+    current += step;
+  }
+}
+
+const counter = customCounter(56, 300);
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value);
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! =>24<=  The Lazy Filter
+
+// টাস্ক: এবার আমরা নতুন শেখা Iterator.from() এবং তার আধুনিক মেথডের ক্ষমতা দেখব।
+// প্রথমে একটি জেনারেটর ফাংশন বানান যা ১ থেকে শুরু করে সিরিয়ালি সব সংখ্যা yield করতে থাকবে (অসীম লুপ)।
+// এই জেনারেটর থেকে Iterator.from() দিয়ে একটি ইটারেটর অবজেক্ট বানান।
+// এবার ইটারেটরের আধুনিক মেথডগুলো (.filter() এবং .take()) চেইন বা একসাথে ব্যবহার করে:
+// প্রথম সব সংখ্যা থেকে শুধু বিজোড় সংখ্যা (Odd Numbers) গুলো ফিল্টার করুন।
+// সেই ফিল্টার করা বিজোড় সংখ্যাগুলো থেকে প্রথম ৪টি সংখ্যা নিন।
+// সবশেষে একটি for...of লুপ চালিয়ে কনসোলে আউটপুট দেখুন।
+// আশাতীত আউটপুট: 1, 3, 5, 7
+
+function* infinitLoop() {
+  let count = 1;
+  while (true) {
+    yield count;
+    count++;
+  }
+}
+const allInfinitLoop = infinitLoop();
+const infinitLoopObject = Iterator.from(allInfinitLoop);
+const filterTake = infinitLoopObject.filter((x) => x % 2 != 0).take(4);
+for (let x of filterTake) {
+  console.log(x);
+}
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! =>25<=  বস লেভেল চ্যালেঞ্জ (The Custom Object Iterator)
+
+// আপনার কাজ: এই company অবজেক্টের ভেতর এমন একটি কাস্টম [Symbol.iterator] বসান, যাতে আমরা যদি এই পুরো অবজেক্টের ওপর সরাসরি একটি for...of লুপ চালাই, তবে সে কোম্পানির সব কর্মচারীর নাম একসাথে এক লাইনে সিরিয়ালি প্রিন্ট করবে।
+// আশাতীত আউটপুট: Abir, Bably, Chayan, Dipu, Emon
+
+const company = {
+  hr: ["Abir", "Bably"],
+  it: ["Chayan", "Dipu", "Emon"],
+
+  [Symbol.iterator]() {
+    let allEmploy = this.hr.concat(this.it);
+    let index = 0;
+    return {
+      next() {
+        if (index < allEmploy.length) {
+          let currentEmploy = allEmploy[index];
+          index++;
+          return { value: currentEmploy, done: false };
+        } else {
+          return { done: true };
+        }
+      },
+    };
+  },
+};
+
+let output = [];
+for (let x of company) {
+  output.push(x);
+}
+console.log(output.join(", "));
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! =>26<=  The Traffic Signal Tracker
+
+// টাস্ক: একটি জেনারেটর ফাংশন বানান: function* trafficSignal()।
+// এটি একটি অসীম লুপের মধ্যে কাজ করবে।
+// আপনি যতবার বাইরে থেকে .next().value কল করবেন, সে সিরিয়ালি লাইটের রঙ রিটার্ন করবে: প্রথমে "Red", তারপর "Yellow", তারপর "Green", এরপর আবার "Red"... এভাবে চক্রাকারে (Loop) চলতেই থাকবে।
+
+function* trafficSignal() {
+  while (true) {
+    yield "Red";
+    yield "Yellow";
+    yield "Green";
+  }
+}
+let Signal = trafficSignal();
+console.log(Signal.next().value);
+console.log(Signal.next().value);
+console.log(Signal.next().value);
+console.log(Signal.next().value);
+console.log(Signal.next().value);
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! =>27<=  The ATM Money Dispenser
+
+// টাস্ক: একটি জেনারেটর ফাংশন বানান: function* atmMachine(totalBalance)। ফাংশনটি শুরুতে মোট ব্যালেন্স (যেমন: ৫০০০ টাকা) ইনপুট হিসেবে নেবে।
+// এই জেনারেটরটি বাইরে থেকে .next(amount) মেথডের মাধ্যমে ইউজারের কাছ থেকে ইনপুট নেবে যে ইউজার কত টাকা তুলতে চান (Hint: let withdraw = yield ...)।
+// প্রতিবার টাকা তোলার পর ভেতরের totalBalance থেকে ওই টাকা মাইনাস হবে।
+// শর্ত: যদি ইউজার ব্যালেন্সের চেয়ে বেশি টাকা তুলতে চান, তবে জেনারেটরটি return "Insufficient Balance!" দিয়ে ওখানেই বন্ধ হয়ে যাবে।
+
+function* atmMachine(totalBalance) {
+  while (true) {
+    let withdraw =
+      yield `Current Balance ${totalBalance}, Enter Your Withdraw Ammount`;
+
+    if (withdraw > totalBalance) {
+      return "Insufficient Balance!";
+    }
+
+    totalBalance -= withdraw;
+    console.log(
+      `Successfully withdrawn: ${withdraw} TK, Now Your Balance Is ${totalBalance} Taka`,
+    );
+  }
+}
+
+const balance = atmMachine(50000);
+console.log(balance.next());
+console.log(balance.next(7000).value);
+
+//console-e ব্যবধান তৈরি করতে।
+console.log(" ");
+
+//! =>28<=  
