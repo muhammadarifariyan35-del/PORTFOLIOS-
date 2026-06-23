@@ -147,4 +147,61 @@ for (let x of takeIterator) {
   console.log(x);
 }
 
-//! JavaScript Generators
+//! Provlem solving
+
+const colors = ["Red", "Green"];
+const colorIterator = Iterator.from(colors);
+console.log(colorIterator.next().value);
+console.log(colorIterator.next().value);
+
+const myNewNumber = Iterator.from([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+const takeMyNumber = myNewNumber.take(2);
+console.log(takeMyNumber.next().value);
+console.log(takeMyNumber.next().value);
+console.log(takeMyNumber.next().value);
+
+// এটি একটি অসীম ইটারেটর যা খালি "Wrong OTP" দিতেই থাকে
+function* infiniteTries() {
+  while (true) {
+    yield "Wrong OTP";
+  }
+}
+const otpAttempts = Iterator.from(infiniteTries());
+const takeOtpAttempts = otpAttempts.take(3);
+for (let x of takeOtpAttempts) {
+  console.log(x);
+}
+
+const users = Iterator.from([
+  { name: "Asif", role: "user" },
+  { name: "Tamim", role: "admin" },
+  { name: "Sakib", role: "user" },
+  { name: "Mushfiq", role: "admin" },
+  { name: "Riyad", role: "user" },
+]);
+const filteringUser = users.filter((users) => users.role === "admin").drop(1);
+console.log(filteringUser.next().value);
+// for(let x of filteringUser){
+//   console.log(x)
+// }
+
+const storeInventory = {
+  electronics: ["Phone", "Laptop"],
+  clothing: ["Shirt", "Pant"],
+  [Symbol.iterator]() {
+    let index = 0;
+    let item = this.electronics.concat(this.clothing);
+    return {
+      next() {
+        if (index < item.length) {
+          return { value: item[index++], done: false };
+        } else {
+          return { done: true };
+        }
+      },
+    };
+  },
+};
+for (let x of storeInventory) {
+  console.log(x);
+}
