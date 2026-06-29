@@ -91,3 +91,25 @@ console.log(totalCarton);
 
 let OTP = Math.trunc(100000 + Math.random() * 900000);
 console.log(`Your OTP is ${OTP}`);
+
+//* গেমের লুডু ছক্কা (Dice) সিমুলেটর
+console.log(Math.trunc(1 + Math.random() * 6));
+
+//* ক্যাশ-আউট চার্জ ট্র্যাকার
+function checkTransition(amount) {
+  const status = Math.sign(amount);
+
+  if (status === 1) {
+    console.log("অভিনন্দন! আপনার অ্যাকাউন্টে টাকা ডিপোজিট হয়েছে। 🟢");
+  } else if (status === -1) {
+    console.log("সতর্কতা! আপনার অ্যাকাউন্ট থেকে টাকা ক্যাশ-আউট হয়েছে। 🔴");
+  } else if (status === 0 || status === -0) {
+    console.log("আপনার অ্যাকাউন্টে কোনো লেনদেন হয়নি। ⚪");
+  } else {
+    console.log("ভুল ইনপুট! দয়া করে সঠিক সংখ্যা দিন।");
+  }
+}
+checkTransition(3000);
+checkTransition(-986);
+checkTransition(0);
+
