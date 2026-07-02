@@ -45,3 +45,29 @@ console.log(text8.match(/[aio]/gi));
 
 const text9 = "Hello 2026 World! #🔥";
 console.log(text9.match(/[a-z0-9]/gi));
+
+//!  RegExp Flags
+
+//* /m ফ্ল্যাগের কামাল (Multiline Matching)
+const poem = "Love JavaScript\nLove Coding\nLove learning";
+console.log(poem);
+console.log(poem.match(/^Love/g));
+console.log(poem.match(/^Love/gm));
+
+//* /d ফ্ল্যাগের কামাল (Indices Match - New 2022)
+let text10 = "Love JavaScript Love Coding Love learning";
+let regex = /love/dgi;
+let result;
+while ((result = regex.exec(text10)) !== null) {
+  console.log(result.indices[0]);
+}
+
+//* /v ফ্ল্যাগের কামাল (Advanced Unicode - New 2025/2026)
+const emojis = "🧜‍♀️ 🦖 🍎";
+const animalPattern = /[\p{RGI_Emoji}]/v;
+console.log(emojis.match(animalPattern));
+
+//* /y ফ্ল্যাগের কামাল (Sticky Search)
+let text11 = "ha-ha-ha";
+console.log(/ha/y.exec(text11));
+
