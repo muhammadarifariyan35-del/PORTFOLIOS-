@@ -71,3 +71,34 @@ console.log(emojis.match(animalPattern));
 let text11 = "ha-ha-ha";
 console.log(/ha/y.exec(text11));
 
+//!  RegExp Character Classes
+
+//* RegExp Character Classes
+const text12 = "Hello 2026 World";
+const pattern = /\d+/;
+console.log(pattern.test(text12));
+console.log(pattern.exec(text12));
+
+//* match() বনাম matchAll() (String-এর মেথড)
+const bio = "ID: 101 and ID: 102";
+const regex2 = /ID: \d+/g;
+console.log(bio.match(regex2));
+for (let match of bio.matchAll(regex2)) {
+  console.log(match[0] + " " + match.index);
+}
+
+//* split(regex) এর একটি জাদুকরী ট্রিক
+const dirtyList = "Apple,Orange;Mango ,...Banana";
+console.log(dirtyList.split(/[,;:.\s\d]+/));
+
+//!  RegExp Meta Characters
+
+//*  \xhh (Hexadecimal - হেক্সাডেসিমেল কোড)
+const text13 = "Arif loves Coding.";
+console.log(text13.match(/\x73/g));
+
+//* \uhhhh (Unicode - ইউনিকোড সিস্টেম)
+const banglaText = "আমার নাম আরিফ। 祃";
+console.log(banglaText.match(/\u7943/g));
+console.log(banglaText.match(/[\u0990-\u09ff]+/ug));
+
