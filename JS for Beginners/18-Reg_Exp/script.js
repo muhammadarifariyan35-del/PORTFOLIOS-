@@ -100,5 +100,38 @@ console.log(text13.match(/\x73/g));
 //* \uhhhh (Unicode - ইউনিকোড সিস্টেম)
 const banglaText = "আমার নাম আরিফ। 祃";
 console.log(banglaText.match(/\u7943/g));
-console.log(banglaText.match(/[\u0990-\u09ff]+/ug));
+console.log(banglaText.match(/[\u0990-\u09ff]+/gu));
 
+//!  Regular Expression Assertions
+
+//* \B (Non-Word Boundary)
+let text14 = "He is a footballplayer and he plays football matches";
+console.log(text14.match(/\Bootball\B/g));
+
+//* (?!...) (Negative Lookahead)
+const items = "100USD, 100Taka, 100Euro";
+console.log(items.match(/100(?!USD)/g));
+
+//* (?<!...) (Negative Lookbehind)
+const list = "$100, ৳500, €300";
+console.log(list.match(/\b(?<!\$)\d+/g));
+
+//!  Regular Expression Groups
+
+//* Capturing Group: (x)
+const info = "Arif: 25, class: 09";
+const regex3 = /(\w+): (\d+), (\w+: \d+)/;
+const result2 = info.match(regex3);
+console.log(result2[0]);
+console.log(result2[1]);
+console.log(result2[2]);
+console.log(result2[3]);
+
+//* Named Capturing Group: (?<name>x)
+const dateStr = "2026-07-04";
+const regex4 = /(?<Year>\d+)-(?<Month>\d+)-(?<Day>\d+)/;
+const result3 = regex4.exec(dateStr);
+console.log(result3.groups.Year);
+console.log(result3.groups.Month);
+console.log(result3.groups.Day);
+console.log(result3.groups)
