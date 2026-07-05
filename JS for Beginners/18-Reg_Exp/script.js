@@ -134,4 +134,38 @@ const result3 = regex4.exec(dateStr);
 console.log(result3.groups.Year);
 console.log(result3.groups.Month);
 console.log(result3.groups.Day);
-console.log(result3.groups)
+console.log(result3.groups);
+
+//* Scoped Flags: (?flag:x) এবং (?flag-flag:x) (Modern ES2024+)
+console.log(/^(?i:arif) Loves (?-i:coding)$/.test("arif Loves coding"));
+console.log(/^(?i:Sharif) Loves (?i:Coding$)/.test("Sharif Loves coding"));
+console.log(" ")
+//!  RegExp Quantifiers
+
+//* x+ (কমপক্ষে ১ বার বা তার বেশি)
+const pattern2 = /lo+ve/;
+console.log(pattern2.test("love"));
+console.log(pattern2.test("looove"));
+console.log(pattern2.test("lve"));
+console.log(" ")
+
+//* x* (০ বার বা তার বেশি)
+const pattern3 = /lo*ve/;
+console.log(pattern3.test("love"))
+console.log(pattern3.test("looove"))
+console.log(pattern3.test("lve"))
+console.log(" ")
+
+//* x? (০ বার অথবা ১ বার)
+const pattern4 = /lo?ve/;
+console.log(pattern4.test("love"))
+console.log(pattern4.test("lve"))
+console.log(pattern4.test("looove"))
+console.log(" ")
+
+//* নির্দিষ্ট সংখ্যা গোনার কোয়ান্টিফায়ার ({...})
+const pattern5 = /^\d{4}$/;
+console.log(pattern5.test(6542))
+console.log(pattern5.test(66546))
+
+//* x{n,m} (কমপক্ষে n বার থেকে সর্বোচ্চ m বার)
