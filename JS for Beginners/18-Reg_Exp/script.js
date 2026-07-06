@@ -139,7 +139,7 @@ console.log(result3.groups);
 //* Scoped Flags: (?flag:x) এবং (?flag-flag:x) (Modern ES2024+)
 console.log(/^(?i:arif) Loves (?-i:coding)$/.test("arif Loves coding"));
 console.log(/^(?i:Sharif) Loves (?i:Coding$)/.test("Sharif Loves coding"));
-console.log(" ")
+console.log(" ");
 //!  RegExp Quantifiers
 
 //* x+ (কমপক্ষে ১ বার বা তার বেশি)
@@ -147,25 +147,38 @@ const pattern2 = /lo+ve/;
 console.log(pattern2.test("love"));
 console.log(pattern2.test("looove"));
 console.log(pattern2.test("lve"));
-console.log(" ")
+console.log(" ");
 
 //* x* (০ বার বা তার বেশি)
 const pattern3 = /lo*ve/;
-console.log(pattern3.test("love"))
-console.log(pattern3.test("looove"))
-console.log(pattern3.test("lve"))
-console.log(" ")
+console.log(pattern3.test("love"));
+console.log(pattern3.test("looove"));
+console.log(pattern3.test("lve"));
+console.log(" ");
 
 //* x? (০ বার অথবা ১ বার)
 const pattern4 = /lo?ve/;
-console.log(pattern4.test("love"))
-console.log(pattern4.test("lve"))
-console.log(pattern4.test("looove"))
-console.log(" ")
+console.log(pattern4.test("love"));
+console.log(pattern4.test("lve"));
+console.log(pattern4.test("looove"));
+console.log(" ");
 
 //* নির্দিষ্ট সংখ্যা গোনার কোয়ান্টিফায়ার ({...})
 const pattern5 = /^\d{4}$/;
-console.log(pattern5.test(6542))
-console.log(pattern5.test(66546))
+console.log(pattern5.test(6542));
+console.log(pattern5.test(66546));
+console.log(" ");
 
 //* x{n,m} (কমপক্ষে n বার থেকে সর্বোচ্চ m বার)
+const pattern6 = /^[a-z]{4,8}$/i;
+console.log(pattern6.test("Arif"));
+console.log(pattern6.test("Computer"));
+console.log(pattern6.test("Js"));
+console.log(" ");
+
+//* x{n,} (কমপক্ষে n বার, ওপরে আনলিমিটেড)
+const pattern7 = /(\w+\s\w+){3,}/;
+console.log(pattern7.test("my name is arif"));
+console.log(pattern7.test("Amar sonar bangla ami tumay valobasi."));
+console.log(pattern7.test("Arif Ariyan"));
+console.log(" ");
