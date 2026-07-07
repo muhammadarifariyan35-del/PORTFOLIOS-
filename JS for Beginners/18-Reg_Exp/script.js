@@ -182,3 +182,27 @@ console.log(pattern7.test("my name is arif"));
 console.log(pattern7.test("Amar sonar bangla ami tumay valobasi."));
 console.log(pattern7.test("Arif Ariyan"));
 console.log(" ");
+
+//!  Problem solving
+
+//*  ইউজারের ইউজারনেম ভ্যালিডেশন
+const usernamPattern = /^[a-z][a-z0-9]{3,9}$/;
+console.log(usernamPattern.test("arif973"));
+console.log(usernamPattern.test("1arif"));
+console.log(usernamPattern.test("ari"));
+console.log(usernamPattern.test("arifariyan"));
+
+//* টাকা বা কারেন্সি এক্সট্রাক্ট করা
+const text15 = "বাজার খরচ: চাল ৳১২০০, ডাল ৳৩০০, তেল $১৫।";
+const takaPattern = /(?<=৳)[০-৯]+/g;
+console.log(text15.match(takaPattern));
+
+//* পাসওয়ার্ডের স্ট্রংনেস চেক করা
+const passwordPattern = /^(?=.*[A-Z])(?=.*\d).{d,}/;
+console.log(passwordPattern.test("Arif2026"));
+console.log(passwordPattern.test("arif2026"));
+
+//* হ্যাশট্যাগ (#) এক্সট্রাক্ট করা
+const post = "Loving the weather today! #JS #coding2026 #learning_regex #fun";
+const hashtagPattern = /#\S+/g;
+console.log(post.match(hashtagPattern));
