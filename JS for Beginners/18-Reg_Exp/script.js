@@ -206,3 +206,12 @@ console.log(passwordPattern.test("arif2026"));
 const post = "Loving the weather today! #JS #coding2026 #learning_regex #fun";
 const hashtagPattern = /#\S+/g;
 console.log(post.match(hashtagPattern));
+
+//* ইমেইল থেকে ডোমেন নেম আলাদা করা
+const emailPattern = /@\w+.\w+/g
+const email1 = "arif.2026@gmail.com";
+const email2 = "test_user@yahoo.co.uk";
+const email3 = "new_user@dklfhj.com"
+console.log(email1.match(emailPattern)); 
+console.log(email2.match(emailPattern)); 
+console.log(email3.match(emailPattern))
