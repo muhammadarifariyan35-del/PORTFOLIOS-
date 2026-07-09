@@ -208,10 +208,31 @@ const hashtagPattern = /#\S+/g;
 console.log(post.match(hashtagPattern));
 
 //* ইমেইল থেকে ডোমেন নেম আলাদা করা
-const emailPattern = /@\w+.\w+/g
+const emailPattern = /@([\w\.-]+)/;
 const email1 = "arif.2026@gmail.com";
 const email2 = "test_user@yahoo.co.uk";
-const email3 = "new_user@dklfhj.com"
-console.log(email1.match(emailPattern)); 
-console.log(email2.match(emailPattern)); 
-console.log(email3.match(emailPattern))
+const result4 = email2.match(emailPattern);
+console.log(result4[1]);
+
+//* HTML ট্যাগ রিমুভ করা
+const htmlText = "<h1>Hello World</h1><p> Welcome to 2026.</p>";
+const htmlPattern = /<[^>]+>/g;
+const cleanText = htmlText.replace(htmlPattern, "");
+console.log(cleanText);
+
+//* সোশ্যাল মিডিয়ার "Mention" বা @username ধরা
+const pattern8 = /\b @\w+/g;
+const text16 = "Hi @arif99, send me an email at arif@gmail.com";
+console.log(text16.match(pattern8));
+
+//* ইউটিউব ভিডিওর আইডি (YouTube Video ID) এক্সট্রাক্ট করা
+const pattern9 = /v=([\w+]{11})/;
+const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=shared";
+const result5 = url.match(pattern9);
+console.log(result5[0]);
+
+//* ক্রেডিট কার্ডের ড্যাশ বা স্পেস ক্লিন করা
+const cleanPattern = /[\s-]/g;
+const cardNumber = "4111-2222 3333-4444";
+const pureNumber = cardNumber.replace(cleanPattern, "");
+console.log(pureNumber);
