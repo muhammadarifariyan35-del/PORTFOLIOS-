@@ -229,10 +229,30 @@ console.log(text16.match(pattern8));
 const pattern9 = /v=([\w+]{11})/;
 const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=shared";
 const result5 = url.match(pattern9);
-console.log(result5[0]);
+console.log(result5[1]);
 
 //* ক্রেডিট কার্ডের ড্যাশ বা স্পেস ক্লিন করা
 const cleanPattern = /[\s-]/g;
 const cardNumber = "4111-2222 3333-4444";
 const pureNumber = cardNumber.replace(cleanPattern, "");
 console.log(pureNumber);
+
+//* প্রোডাক্ট কোড ভ্যালিডেশন (Product ID Validator)
+const productPattern = /^PRD-\d{4}$/;
+console.log(productPattern.test("PRD-1234"));
+console.log(productPattern.test("prd-1234"));
+console.log(productPattern.test("PRD-9949"));
+console.log(productPattern.test("PRD-12345"));
+
+//* ডাবল স্পেস ক্লিন করা (Chat App Text Cleaner)
+const spacePattern = /\s{2,}/g;
+const userInput = "আই    লাভ   জাভাস্ক্রিপ্ট    এবং  রেগুলার এক্সপ্রেশন।";
+const cleanInput = userInput.replace(spacePattern, " ");
+console.log(cleanInput);
+
+//* ফাইন্যান্সিয়াল ডেটা থেকে দশমিকের সংখ্যা বের করা (Lookahead Challenge)
+const text17 =
+  "শার্টের দাম $25.99, প্যান্টের দাম ৳১২০০.৫০, কিন্তু জুতার দাম ৳৫০০০।";
+const pricePattern = /[\d০-৯]+\.[\d০-৯]{2}/g;
+console.log(text17.match(pricePattern));
+
