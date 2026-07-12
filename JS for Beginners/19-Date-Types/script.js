@@ -37,3 +37,36 @@ for (const x of myObj) {
   text += x + " ";
 }
 console.log(text);
+
+//! JavaScript typeof
+console.log(typeof function () {});
+
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200],
+]);
+console.log(fruits instanceof Map);
+
+const time = new Date();
+console.log(time instanceof Date);
+
+console.log(new Set().constructor);
+
+//! JavaScript undefined
+function myFunction() {
+  let x = 5;
+}
+console.log(myFunction());
+
+//! JavaScript NaN
+let x = 100 / "apple";
+console.log(x);
+console.log(typeof x);
+
+//! JavaScript toString()
+const fruitss = ["Banana", "Orange", "Apple", "Mango"];
+console.log(fruitss.join(" ").toString());
+console.log(new Date().toString())
+console.log(440 / 40 )
+
