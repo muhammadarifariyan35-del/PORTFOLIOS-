@@ -67,6 +67,59 @@ console.log(typeof x);
 //! JavaScript toString()
 const fruitss = ["Banana", "Orange", "Apple", "Mango"];
 console.log(fruitss.join(" ").toString());
-console.log(new Date().toString())
-console.log(440 / 40 )
+console.log(new Date().toString());
 
+//! JavaScript toLocaleString()
+let num = 98364595.34;
+console.log(num);
+console.log(num.toLocaleString("en-US"));
+console.log(num.toLocaleString("de-DE"));
+
+let price = 3452.34;
+let text2 = price.toLocaleString("en-Us", {
+  style: "currency",
+  currency: "USD",
+});
+let text3 = price.toLocaleString("de-DE", {
+  style: "currency",
+  currency: "EUR",
+});
+document.getElementById("demo").innerHTML = text2 + "<br>" + text3;
+
+let score = 74573;
+console.log(score.toLocaleString("en-US", { style: "percent" }));
+
+let num2 = 8454.6435;
+console.log(
+  num2.toLocaleString("bn-BD", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 3,
+  }),
+);
+
+console.log(new Date().toLocaleString("en-US"));
+
+let date = new Date();
+console.log(
+  date.toLocaleString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }),
+);
+
+function fileSize(bytes) {
+  if (bytes < 1024) return (bytes = " bytes");
+  if (bytes < 1024 * 1024)
+    return (
+      (bytes / 1024).toLocaleString("en-Us", { maximumFractionDigits: 1 }) +
+      " KB"
+    );
+  return (
+    (bytes / 1024 / 1024).toLocaleString("en-US", {
+      maximumFractionDigits: 1,
+    }) + " MB"
+  );
+}
+console.log(fileSize(7657652))
