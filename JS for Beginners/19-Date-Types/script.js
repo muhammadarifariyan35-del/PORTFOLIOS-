@@ -122,4 +122,26 @@ function fileSize(bytes) {
     }) + " MB"
   );
 }
-console.log(fileSize(7657652))
+console.log(fileSize(7657652));
+
+//! JavaScript Type Conversion
+console.log(Number("4.75"));
+console.log(Number(" "));
+console.log(typeof Math.PI);
+console.log(Number(Math.PI));
+
+console.log(String(242343));
+console.log((243 + 87).toString());
+
+console.log(Number(new Date()));
+console.log(new Date().getTime());
+
+console.log((new Date().getMonth() + 1).toLocaleString("bn-BD"));
+
+console.log(Number(false))
+console.log(Number(true))
+
+console.log(String(false))
+console.log(String(true))
+
+ 
