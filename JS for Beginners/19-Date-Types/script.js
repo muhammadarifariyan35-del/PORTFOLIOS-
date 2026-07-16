@@ -235,3 +235,47 @@ const finalArray = Array.from(uniqUserSet);
 
 console.log(finalArray);
 console.log(finalArray.constructor.name);
+
+//* সিক্রেট ইউজার প্রফাইল বিল্ডার (Symbols + Destructuring with Aliasing)
+
+// তোমার টাস্ক:
+// একটি Symbol তৈরি করো যার ডেসক্রিপশন হবে "userId"।
+// একটি অবজেক্ট userProfile তৈরি করো। সেখানে ওই Symbol-টিকে key হিসেবে ব্যবহার করে ভ্যালু দাও "USR-X99"। এছাড়া অবজেক্টে fName: "Arif" এবং role: "Admin" প্রোপার্টি রাখো।
+// অবজেক্টটি থেকে Destructuring করো। করার সময় fName-এর নাম বদলে ভ্যারিয়েবল বানাও name (Aliasing), এবং একটি নতুন প্রোপার্টি country বের করার চেষ্টা করো যার ডিফল্ট ভ্যালু (Default Value) হিসেবে সেট করবে "Bangladesh"।
+
+let userIdSymbol = Symbol("userId");
+
+const userProfile = {
+  userIdSymbol: "USR-X99",
+  fName: "Arif",
+  role: "Admin",
+};
+
+let { fName: userName, userCountry = "Bangladesh" } = userProfile;
+console.log(
+  userName,
+  userCountry,
+  Object.keys(userProfile),
+  userProfile.userIdSymbol,
+);
+
+//*  ডাটা টাইপ পিউরিফায়ার (Primitive vs Object + Type Conversion + Constructor)
+
+// তোমার টাস্ক:
+// অ্যারেটির ওপর একটি লুপ বা .map() চালাও।
+// লুপের ভেতরে চেক করো, যদি উপাদানটির typeof সমান "object" হয়, তবে সেটিকে Type Conversion করে খাঁটি প্রিমিটিভ টাইপে রূপান্তর করো (যেমন: অবজেক্ট স্ট্রিংকে String(val) বা .valueOf() দিয়ে নরমাল স্ট্রিং বানাও)।
+// রূপান্তর করার পর, উপাদানটির constructor.name চেক করে কনসোলে প্রিন্ট করো।
+
+const muddyData = [new String("Hello"), new Number(2026), "JS is Awesome"];
+
+const cleanData = muddyData.map((val) => {
+  if (typeof val === "object" && val !== null) {
+    val = val.valueOf();
+  }
+  console.log(
+    `Value: "${val}"  Tyepe: ${typeof val}  -> Constructor: ${val.constructor.name} `,
+  );
+  return val;
+});
+
+console.log(cleanData);
