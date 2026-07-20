@@ -279,3 +279,32 @@ const cleanData = muddyData.map((val) => {
 });
 
 console.log(cleanData);
+
+//* দ্য ডিটেকটিভ কোড রিভিউ (Advanced Destructuring + Coercion)
+
+const cart = {
+  promo: { code: "SUMMER50", value: "50" },
+  items: [{ name: "T-Shirt", price: 200 }],
+};
+
+const {
+  promo: { value: discount11 = "0" },
+  items: [firstItem],
+} = cart;
+
+const finalPrice = firstItem.price - Number(discount11);
+console.log(finalPrice);
+
+//* দ্য হিডেন ট্রেজার হ্যাক (Symbols + Built-in Methods)
+
+const secretKey = Symbol("hiddenPassword");
+
+const vault = {
+  username: "mr_robot",
+  [secretKey]: "SuperSecret1234",
+};
+
+const vault1 = Object.getOwnPropertySymbols(vault);
+const hackedKey = vault1[0];
+console.log(vault[hackedKey]);
+
