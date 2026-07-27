@@ -32,7 +32,9 @@ function processPayment(inputAmount) {
 }
 
 processPayment(345);
+
 processPayment();
+
 processPayment(-3);
 
 //! >02< দ্য এনক্রিপ্টেড সেশন ম্যানেজার (Symbols, Maps, Sets & Scope)
@@ -50,7 +52,6 @@ processPayment(-3);
 
 const userRoles = new Set(["admin", "editor", "viewer"]);
 userRoles.add("admin");
-console.log(userRoles);
 
 const secretSessionKey = Symbol("sessionID");
 
@@ -86,3 +87,45 @@ const getData = createSessionTracker();
 console.log(getData(101, "9834"));
 console.log(getData(34534, "98435936"));
 console.log(getData(101, "SESS_987654321_SECRET"));
+
+//! >03< দ্য স্মার্ট কারেন্সি ও ডেট ফরম্যাটার (toLocaleString, Dates & Temporal)
+
+// সিনারিও: একটি গ্লোবাল ড্যাশবোর্ডে ইউজারকে তার লোকাল টাইমজোন ও কারেন্সি অনুযায়ী ডাটা দেখাতে হবে।
+
+//* শর্ত ও টাস্ক:
+// ১. একটি সংখ্যা নিন (যেমন: 9540000.5) এবং এটিকে toLocaleString ব্যবহার করে বাংলাদেশি ফরম্যাটে (BDT ৳) এবং ইউএস ফরম্যাটে ($) প্রিন্ট করুন।
+
+// ২. বর্তমান তারিখ এবং ইউজার লাস্ট কখন লগইন করেছিল (ধরা যাক ৫ দিন আগে) তার সময়ের পার্থক্য Math বা Date মেথড ব্যবহার করে বের করুন।
+
+// ৩. আউটপুটে স্ট্রিং ফরম্যাটিং রিডেবেল হতে হবে।
+
+let rowAmount = 9540000.5;
+
+let BDTformat = rowAmount.toLocaleString("bn-BD", {
+  style: "currency",
+  currency: "BDT",
+});
+
+let USformat = rowAmount.toLocaleString("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
+console.log(`আপনার ব্যালেন্স  ইউএস ফরমেটে ${USformat}`);
+console.log(`আপনার ব্যালেন্স  বাংলাদেশ ফরমেটে ${BDTformat}`);
+
+const currentTime = new Date();
+
+const lastLogginDays = new Date(
+  currentTime.getTime() - 5 * 24 * 60 * 60 * 1000,
+);
+
+const timeDifferenceInMs = currentTime - lastLogginDays;
+const daysDifference = Math.floor(timeDifferenceInMs / (1000 * 60 * 60 * 24));
+
+console.log(`
+--- ইউজার ড্যাশবোর্ডে সামারি ---  
+মোট ব্যালেন্স (US): ${USformat}
+মোট ব্যালেন্স (BDT): ${BDTformat}
+ইউজার লাস্ট লগইন করেছেন: ${daysDifference} দিন আগে।
+`);
