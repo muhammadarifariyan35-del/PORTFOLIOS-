@@ -132,42 +132,33 @@ console.log(`
 
 //! >04< দ্য ফাইল প্রসেসর টাইমার (Timers, Loops & Array Methods)
 
-// সিনারিও: একটি গ্লোবাল ড্যাশবোর্ডে ইউজারকে তার লোকাল টাইমজোন ও কারেন্সি অনুযায়ী ডাটা দেখাতে হবে।
-
 //* শর্ত ও টাস্ক:
-// ১. একটি সংখ্যা নিন (যেমন: 9540000.5) এবং এটিকে toLocaleString ব্যবহার করে বাংলাদেশি ফরম্যাটে (BDT ৳) এবং ইউএস ফরম্যাটে ($) প্রিন্ট করুন।
+// ১. ৫টি ফাইলের একটি অ্যারে নিন: ["file1.png", "file2.pdf", "file3.mp4", "file4.docx", "file5.jpg"]।
 
-// ২. বর্তমান তারিখ এবং ইউজার লাস্ট কখন লগইন করেছিল (ধরা যাক ৫ দিন আগে) তার সময়ের পার্থক্য Math বা Date মেথড ব্যবহার করে বের করুন।
+// ২. setInterval এবং Closure/Scope ব্যবহার করে প্রতি ১ সেকেন্ড পরপর একটি করে ফাইল "Uploading..." দেখাবেন।
 
-// ৩. আউটপুটে স্ট্রিং ফরম্যাটিং রিডেবেল হতে হবে।
+// ৩. সব ফাইল প্রসেস হয়ে গেলে clearInterval দিয়ে টাইমারটি থামিয়ে দেবেন এবং কনসোলে "All files uploaded successfully!" দেখাবেন।
 
-let rowAmount = 9540000.5;
+const arrayFiles = [
+  "file1.png",
+  "file2.pdf",
+  "file3.mp4",
+  "file4.docx",
+  "file5.jpg",
+];
 
-let BDTformat = rowAmount.toLocaleString("bn-BD", {
-  style: "currency",
-  currency: "BDT",
-});
+function createUploader(fileList) {
+  let index = 0;
 
-let USformat = rowAmount.toLocaleString("en-US", {
-  style: "currency",
-  currency: "USD",
-});
+  const timerId = setInterval(() => {
+    if (index < fileList.length) {
+      console.log(`Uploading: ${fileList[index]}`);
+      index++;
+    } else {
+      clearInterval(timerId);
+      console.log("✅ All files uploaded successfully!");
+    }
+  }, 1000);
+}
 
-console.log(`আপনার ব্যালেন্স  ইউএস ফরমেটে ${USformat}`);
-console.log(`আপনার ব্যালেন্স  বাংলাদেশ ফরমেটে ${BDTformat}`);
-
-const currentTime = new Date();
-
-const lastLogginDays = new Date(
-  currentTime.getTime() - 5 * 24 * 60 * 60 * 1000,
-);
-
-const timeDifferenceInMs = currentTime - lastLogginDays;
-const daysDifference = Math.floor(timeDifferenceInMs / (1000 * 60 * 60 * 24));
-
-console.log(`
---- ইউজার ড্যাশবোর্ডে সামারি ---  
-মোট ব্যালেন্স (US): ${USformat}
-মোট ব্যালেন্স (BDT): ${BDTformat}
-ইউজার লাস্ট লগইন করেছেন: ${daysDifference} দিন আগে।
-`);
+createUploader(arrayFiles);
