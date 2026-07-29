@@ -32,9 +32,7 @@ function processPayment(inputAmount) {
 }
 
 processPayment(345);
-
 processPayment();
-
 processPayment(-3);
 
 //! >02< দ্য এনক্রিপ্টেড সেশন ম্যানেজার (Symbols, Maps, Sets & Scope)
@@ -158,7 +156,35 @@ function createUploader(fileList) {
       clearInterval(timerId);
       console.log("✅ All files uploaded successfully!");
     }
-  }, 1000);
+  }, 2000);
 }
 
 createUploader(arrayFiles);
+
+//! >05< দ্য সিকিউর রেগুলার এক্সপ্রেশন পার্সার (RegExp, Lookahead & Unicode)
+
+// সিনারিও: একটি আন্তর্জাতিক চ্যাট অ্যাপ্লিকেশনে ইউজারদের জন্য পাসওয়ার্ড সেট করার একটি রুল দরকার, কিন্তু সেখানে বাংলা ও ইংরেজি দুই ভাষার অ্যালফাবেট এবং সিম্বল সাপোর্ট করতে হবে।
+
+//* শর্ত ও টাস্ক:
+// ১. এমন একটি RegExp তৈরি করুন যা নিচের সব নিয়ম পূরণ করবে:
+
+// পাসওয়ার্ডের দৈর্ঘ্য অন্তত ৮ অক্ষরের হতে হবে।
+
+// অন্তত ১টি ছোট হাতের এবং ১টি বড় হাতের অক্ষর থাকতে হবে (English)।
+
+// অন্তত ১টি সংখ্যা থাকতে হবে।
+
+// অন্তত ১টি বিশেষ চিহ্ন (Special Character, যেমন: @, #, $, %) থাকতে হবে।
+
+// অতিরিক্ত টুইস্ট: এটি যেন বাংলা অক্ষরও (\u0980-\u09FF) রিকগনাইজ করতে পারে।
+// ২. Positive Lookahead ((?=...)) ব্যবহার করে একক রেগুলার এক্সপ্রেশনের মধ্যে টেস্ট করার ফাংশনটি লিখুন।
+
+function validAdvancedPassword(password) {
+  const passwordValidationPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!.\-_])[a-zA-Z\d@#$%^&=+\-_!.\u0980-\u09FF]{8,}$/;
+
+  console.log(passwordValidationPattern.test(password));
+}
+validAdvancedPassword("Pass12345");
+validAdvancedPassword("Pass123@বাংলা");
+
