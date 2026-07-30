@@ -159,7 +159,7 @@ function createUploader(fileList) {
   }, 2000);
 }
 
-createUploader(arrayFiles);
+// createUploader(arrayFiles);
 
 //! >05< দ্য সিকিউর রেগুলার এক্সপ্রেশন পার্সার (RegExp, Lookahead & Unicode)
 
@@ -187,4 +187,52 @@ function validAdvancedPassword(password) {
 }
 validAdvancedPassword("Pass12345");
 validAdvancedPassword("Pass123@বাংলা");
+
+//! >06< দ্য ডেটা ডিসপ্যাচার উইথ ক্লজার (Functions, Scope & Higher-Order Methods)
+
+// সিনারিও: একটি নোটিফিকেশন সিস্টেম বানাতে হবে যা ফ্রন্টএন্ডে ইউজারের জন্য নোটিফিকেশন জমিয়ে রাখে এবং নির্দিষ্ট লিমিট পার হলে ব্যাচ আকারে পাঠায়।
+
+//* শর্ত ও টাস্ক:
+// ১. একটি createNotificationManager(limit) ফাংশন বানান যা একটি Closure রিটার্ন করবে।
+
+// ২. ভিতরের রিটার্ন করা ফাংশনে প্রতিবার নতুন নোটিফিকেশন পুশ হবে।
+
+// ৩. যদি জমা হওয়া নোটিফিকেশনের সংখ্যা limit-এর সমান বা বেশি হয়, তবে সে পুরো লিস্টটিকে map বা reduce ব্যবহার করে প্রসেস করবে এবং প্রাইভেট লিস্টটিকে ক্লিয়ার (Reset) করে দেবে।
+
+// ৪. আউটার স্কোপের কোনো ভ্যারিয়েবল যেন বাইরে থেকে ম্যানুয়ালি এক্সেস বা মডিফাই করা না যায় (Data Privacy নিশ্চিত করতে হবে)।
+
+function createNotificationManager(limit) {
+  const notificationQueue = [];
+
+  return function pushNotification(message) {
+    notificationQueue.push({
+      id: Date.now(),
+      text: message,
+      time: new Date().toLocaleDateString(),
+    });
+    console.log(
+      `📥 Added to queue: "${message}" (Current size: ${notificationQueue.length}/${limit})`,
+    );
+    if (notificationQueue.length >= limit) {
+      console.log("\n🚀 Limit reached! Processing batch...");
+      const processedBatched = notificationQueue.map((item, index) => {
+        return `${index + 1} ID: ${item.id} | MSg: ${item.text} ${item.time}`;
+      });
+      console.log("---------------- Batch Data Sent ----------------");
+      console.log(processedBatched);
+      console.log("-------------------------------------------------");
+      notificationQueue.length = 0;
+      console.log("🧹 Queue reset successfully!\n");
+    }
+    return `Queue count: ${notificationQueue.length}`;
+  };
+}
+const addNotification = createNotificationManager(2);
+
+addNotification("kljdhkdsjh");
+addNotification("lksdflkjhsd");
+addNotification("kjsdhfbv");
+addNotification("kljdhkdsjh");
+addNotification("lksdflkjhsd");
+addNotification("kjsdhfbv");
 

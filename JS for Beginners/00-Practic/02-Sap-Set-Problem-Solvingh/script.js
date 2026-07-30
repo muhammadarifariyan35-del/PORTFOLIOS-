@@ -27,3 +27,32 @@ for (let [name, drinks] of partyTracker) {
   totaldrinks += drinks;
 }
 console.log(`Total drinks consumed in the party: ${totaldrinks}`);
+
+//! লেভেল-১ (Closure ও Counter)
+
+function createCounter() {
+  let count = 0;
+  return function incressCounter() {
+    count++;
+    return count;
+  };
+}
+let showNumber = createCounter();
+console.log(showNumber());
+console.log(showNumber());
+console.log(showNumber());
+
+//! লেভেল-২ (Closure + Parameter)
+
+function createStepCounter(step) {
+  let count = 0;
+  return function incressCounter() {
+    count += step;
+    return count;
+  };
+}
+let showStepNumber = createStepCounter(187);
+console.log(showStepNumber());
+console.log(showStepNumber());
+console.log(showStepNumber());
+
