@@ -56,3 +56,77 @@ console.log(showStepNumber());
 console.log(showStepNumber());
 console.log(showStepNumber());
 
+//! লেভেল-৩ (Closure + Condition)
+
+function createLimitedCounter(limit) {
+  let index = 0;
+
+  return function limitCounter() {
+    index++;
+    if (index > limit) {
+      return "Limit Reached!";
+    }
+    return index;
+  };
+}
+
+const myLimitCount = createLimitedCounter(3);
+
+console.log(myLimitCount());
+console.log(myLimitCount());
+console.log(myLimitCount());
+console.log(myLimitCount());
+
+//! লেভেল-৪ (Closure + Reset Logic)
+
+function createResetCounter() {
+  let count = 0;
+
+  return function ResetCounter(action) {
+    if (action === "reset") {
+      count = 0;
+      return "Counter reset to 0";
+    }
+    count++;
+    return count;
+  };
+}
+
+const counter = createResetCounter();
+
+console.log(counter());
+console.log(counter());
+console.log(counter("reset"));
+console.log(counter());
+console.log(counter());
+
+//! লেভেল-৫ (Closure + Multiple Actions Object)
+
+function createAdvancedCounter() {
+  let count = 0;
+  return {
+    increment() {
+      count++;
+      return count;
+    },
+    decrement() {
+      count--;
+      return count;
+    },
+    reset() {
+      count = 0;
+
+      return `Counter Reset. Now your count is ${count}`;
+    },
+  };
+}
+
+const myAdvancedCounter = createAdvancedCounter();
+
+console.log(myAdvancedCounter.increment());
+console.log(myAdvancedCounter.increment());
+console.log(myAdvancedCounter.decrement());
+console.log(myAdvancedCounter.decrement());
+console.log(myAdvancedCounter.decrement());
+console.log(myAdvancedCounter.reset());
+
