@@ -130,3 +130,69 @@ console.log(myAdvancedCounter.decrement());
 console.log(myAdvancedCounter.decrement());
 console.log(myAdvancedCounter.reset());
 
+//! লেভেল-৬ (Mini Notification Manager)
+
+function createNotificationSystem() {
+  const queue = [];
+  return {
+    add(msg) {
+      queue.push(msg);
+      return `Added! Total: ${queue.length} Message`;
+    },
+    flush() {
+      const message = [...queue];
+      queue.length = 0;
+      return message;
+    },
+  };
+}
+
+const notify = createNotificationSystem();
+
+console.log(notify.add("User logged in"));
+console.log(notify.add("Payment done"));
+
+console.log(notify.flush());
+
+console.log(notify.add("New message"));
+
+//! লেভেল-৭ (Smart Shopping Cart Manager)
+
+function createCart() {
+  const items = [];
+
+  return {
+    addItem(name, price) {
+      items.push({ name, price });
+      return `Added ${name}  $${price}`;
+    },
+    getItems() {
+      return items;
+    },
+    getTotal() {
+      let total = 0;
+      items.forEach((item) => (total += item.price));
+      return total;
+    },
+    clear() {
+      items.length = 0;
+      return "Card Cleared";
+    },
+  };
+}
+
+const myCart = createCart();
+
+console.log(myCart.addItem("shirt", 1300));
+console.log(myCart.addItem("Laptop", 40500));
+console.log(myCart.addItem("pant", 9990));
+console.log(myCart.addItem("Laptop", 40500));
+console.log(myCart.addItem("shirt", 1300));
+console.log(myCart.addItem("Phone", 15000));
+
+console.log(myCart.addItem("Laptop", 40500));
+
+console.table(myCart.getItems());
+console.log(myCart.getTotal());
+console.log(myCart.clear());
+console.log(myCart.getTotal());
