@@ -160,23 +160,54 @@ console.log(notify.add("New message"));
 
 function createCart() {
   const items = [];
+  let discountPercent = 0;
 
   return {
     addItem(name, price) {
-      items.push({ name, price });
-      return `Added ${name}  $${price}`;
+      let index = items.findIndex(item => item.name === name && item.price === price)
+
+      if(index !== -1){
+        items[index].quantity++
+        return `Updated ${name} quantity to ${items[index].quantity}`
+      }else{
+        items.push({name, price, quantity: 1})
+        return `Added ${name} $${price}`
+      }
     },
     getItems() {
       return items;
     },
     getTotal() {
       let total = 0;
-      items.forEach((item) => (total += item.price));
-      return total;
+      items.forEach((item) => (total += item.price * item.quantity));
+      return total - (total * discountPercent) / 100;
     },
     clear() {
       items.length = 0;
+      discountPercent = 0;
       return "Card Cleared";
+    },
+    removeItems(nme) {
+      const index = items.findIndex((item) => item.name === nme);
+      if(index !== -1){
+        if(items[index].quantity > 1){
+          items[index].quantity--
+          return `Remove one ${items[index].name} from cart`
+        }else{
+          items.splice(index, 1)
+          return `Remove ${items[index].name} from cart`
+        }
+      }else{
+        return `${nme} not Found in cart`
+      }
+    },
+    applyCoupon(code) {
+      if (code === "Save10") {
+        discountPercent = 10;
+        return "Coupon applied! 10% discount added.";
+      } else {
+        return "Invalid Coupon Code!";
+      }
     },
   };
 }
@@ -186,13 +217,24 @@ const myCart = createCart();
 console.log(myCart.addItem("shirt", 1300));
 console.log(myCart.addItem("Laptop", 40500));
 console.log(myCart.addItem("pant", 9990));
-console.log(myCart.addItem("Laptop", 40500));
+console.log(myCart.addItem("Mobile", 40500));
+console.log(myCart.addItem("Jacket", 1300));
+console.log(myCart.addItem("mac book", 15000));
+console.log(myCart.addItem("HP Laptop", 40500));
+console.log(myCart.addItem("HP Laptop", 40500));
 console.log(myCart.addItem("shirt", 1300));
-console.log(myCart.addItem("Phone", 15000));
-
-console.log(myCart.addItem("Laptop", 40500));
+console.log(myCart.addItem("Mobile", 40500));
 
 console.table(myCart.getItems());
 console.log(myCart.getTotal());
-console.log(myCart.clear());
+// console.log(myCart.clear());
+// console.log(myCart.getTotal());
+
+console.log(myCart.removeItems("Mobile"));
+console.table(myCart.getItems());
+
+console.log(myCart.getTotal());
+console.log(myCart.applyCoupon("save20"));
+console.log(myCart.applyCoupon("Save10"));
+
 console.log(myCart.getTotal());
