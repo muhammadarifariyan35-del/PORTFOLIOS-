@@ -164,14 +164,16 @@ function createCart() {
 
   return {
     addItem(name, price) {
-      let index = items.findIndex(item => item.name === name && item.price === price)
+      let index = items.findIndex(
+        (item) => item.name === name && item.price === price,
+      );
 
-      if(index !== -1){
-        items[index].quantity++
-        return `Updated ${name} quantity to ${items[index].quantity}`
-      }else{
-        items.push({name, price, quantity: 1})
-        return `Added ${name} $${price}`
+      if (index !== -1) {
+        items[index].quantity++;
+        return `Updated ${name} quantity to ${items[index].quantity}`;
+      } else {
+        items.push({ name, price, quantity: 1 });
+        return `Added ${name} $${price}`;
       }
     },
     getItems() {
@@ -189,16 +191,17 @@ function createCart() {
     },
     removeItems(nme) {
       const index = items.findIndex((item) => item.name === nme);
-      if(index !== -1){
-        if(items[index].quantity > 1){
-          items[index].quantity--
-          return `Remove one ${items[index].name} from cart`
-        }else{
-          items.splice(index, 1)
-          return `Remove ${items[index].name} from cart`
+      if (index !== -1) {
+        if (items[index].quantity > 1) {
+          items[index].quantity--;
+          return `Remove one ${items[index].name} from cart`;
+        } else {
+          const deleteItemName = items[index].name;
+          items.splice(index, 1);
+          return `Remove ${deleteItemName} from cart`;
         }
-      }else{
-        return `${nme} not Found in cart`
+      } else {
+        return `${nme} not Found in cart`;
       }
     },
     applyCoupon(code) {
