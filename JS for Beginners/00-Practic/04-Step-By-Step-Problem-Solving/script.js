@@ -5,7 +5,7 @@ function delayedLog(message, delayTime) {
     console.log(message);
   }, delayTime);
 }
-delayedLog("Welcome to JavaScript Timer", 100);
+// delayedLog("Welcome to JavaScript Timer", 100);
 
 //! লেভেল-২ (JS Timers: Countdown Timer)
 
@@ -16,12 +16,103 @@ function startCountDown(seconds) {
       console.log(count);
       count--;
     } else {
-        console.log("Time is up");
-        clearInterval(timerId);
+      console.log("Time is up");
+      clearInterval(timerId);
     }
   }, 500);
 }
-startCountDown(10);
+// startCountDown(10);
 
 //! লেভেল-৩ (JS Timers + Closure: Stopwatch with Controls)
 
+function createStopwatch() {
+  let seconds = 0;
+  let timerId = null;
+  return {
+    start() {
+      if (timerId !== null) {
+        console.log("Stopwatch is already running!");
+        return;
+      }
+
+      timerId = setInterval(() => {
+        seconds++;
+        console.log(`Elapsed time ${seconds} seconds`);
+      }, 1000);
+    },
+    pause() {
+      if (timerId !== null) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+      console.log(`Stopwatch paused at ${seconds} seconds`);
+      return;
+    },
+    reset() {
+      if (timerId !== null) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+      seconds = 0;
+      console.log("Stopwatch reset to 0");
+      return;
+    },
+  };
+}
+
+const watch = createStopwatch();
+
+// watch.start();
+
+// setTimeout(() => {
+//   watch.pause();
+
+//   setTimeout(() => {
+//     console.log("--- Resuming Stopwatch ---");
+//     watch.start();
+
+//     setTimeout(() => {
+//       watch.reset();
+//     }, 3000);
+//   }, 2000);
+// }, 3000);
+
+//! এবার লেভেল-৪ (Array Filtering & Transformation)
+
+function getEvenSquareSum(numbers) {
+  let output = numbers
+    .filter((x) => x % 2 === 0)
+    .map((x) => x ** 2)
+    .reduce((x, y) => x + y, 0);
+  return output;
+}
+console.log(getEvenSquareSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+//! লেভেল-৫ (Array Operations: Grouping & Aggregation)
+
+function getCategoryTotal(product) {
+  const totalMap = {};
+  product.forEach((element) => {
+    if (totalMap[element.category]) {
+      totalMap[element.category] += element.price;
+    } else {
+      totalMap[element.category] = element.price;
+    }
+  });
+
+  return totalMap;
+}
+const products = [
+  { name: "Shirt", category: "Clothing", price: 1000 },
+  { name: "Pant", category: "Clothing", price: 1500 },
+  { name: "Laptop", category: "Electronics", price: 50000 },
+  { name: "Mouse", category: "Electronics", price: 500 },
+  { name: "Apple", category: "Groceries", price: 200 },
+];
+console.log(getCategoryTotal(products));
+
+//! লেভেল-১ (খুবই সহজ: নাম খুঁজে বের করা)
+const names = ["Rahim", "Karim", "Sakib"];
+names.forEach((item) => {
+  console.log("hello" + " " + item);
+});
