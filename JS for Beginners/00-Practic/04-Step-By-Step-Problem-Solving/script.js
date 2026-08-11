@@ -160,3 +160,49 @@ function calculateFinalBill(prices) {
 }
 const prices = [100, 200, 150, 300, 80, 250];
 console.log(calculateFinalBill(prices));
+
+//! লেভেল-৭ (অ্যাভারেজ বা গড় বের করার চ্যালেঞ্জ)
+
+function getAverageScore(scores) {
+  let totalFilterMarks = scores.filter((number) => number > 0);
+  let totalReduceMarks = totalFilterMarks.reduce(
+    (item1, item2) => item1 + item2,
+    0,
+  );
+
+  return totalReduceMarks / totalFilterMarks.length;
+}
+const scores1 = [80, 0, 90, 0, 70];
+console.log(getAverageScore(scores1));
+
+//! লেভেল-৮ (Object Array Management: খোঁজা ও সাজানো)
+
+function getBooksByAuthor(books, authorName) {
+  return books
+    .filter((item) => item.author === authorName)
+    .map((item) => ({ name: item.title, price: item.price }));
+}
+
+const books = [
+  { title: "Himu", author: "Humayun Ahmed", price: 250 },
+  { title: "Gitanjali", author: "Rabindranath Tagore", price: 300 },
+  { title: "Misir Ali", author: "Humayun Ahmed", price: 280 },
+  { title: "Shesher Kobita", author: "Rabindranath Tagore", price: 220 },
+];
+
+console.table(getBooksByAuthor(books, "Humayun Ahmed"));
+console.table(getBooksByAuthor(books, "Rabindranath Tagore"));
+
+//! লেভেল-৯ (Array Searching & Condition Checking)
+
+function checkInventory(books) {
+  let hasExpensiveBook = books.some((x) => x.price > 500);
+  let isAllInStock = books.every((x) => x.inStock);
+  return { hasExpensiveBook, isAllInStock };
+}
+const books2 = [
+  { title: "Himu", price: 250, inStock: true },
+  { title: "Gitanjali", price: 600, inStock: true },
+  { title: "Shesher Kobita", price: 220, inStock: false },
+];
+console.log(checkInventory(books2));
