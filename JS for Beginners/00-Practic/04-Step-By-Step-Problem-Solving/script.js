@@ -206,3 +206,65 @@ const books2 = [
   { title: "Shesher Kobita", price: 220, inStock: false },
 ];
 console.log(checkInventory(books2));
+
+//! লেভেল-১০ (অ্যারে সর্টিং বা সাজানো - Array Sorting)
+
+function sortBookByPrice(books) {
+  return books.toSorted((a, b) => a.price - b.price);
+}
+const books3 = [
+  { title: "Gitanjali", price: 600 },
+  { title: "Shesher Kobita", price: 220 },
+  { title: "Himu", price: 250 },
+];
+console.table(sortBookByPrice(books3));
+console.table(books3);
+
+//! লেভেল-১১ (অ্যারে গ্রুপিং - Array Grouping / Indexing)
+
+function countProductsByCategory(products) {
+  const countMap = {};
+  products.forEach((item) => {
+    let catagory = item.category;
+
+    if (countMap[catagory]) {
+      countMap[catagory] = countMap[catagory] + 1;
+    } else {
+      countMap[catagory] = 1;
+    }
+  });
+  return countMap;
+}
+const products2 = [
+  { name: "Shirt", category: "Clothing" },
+  { name: "Pant", category: "Clothing" },
+  { name: "Laptop", category: "Electronics" },
+  { name: "Mouse", category: "Electronics" },
+  { name: "Apple", category: "Groceries" },
+];
+console.table(countProductsByCategory(products2));
+
+//___
+
+function countProductsByCategory2(product) {
+  const countMap = {};
+  product.forEach((item) => {
+    let className = item.class;
+
+    if (countMap[className]) {
+      countMap[className] = countMap[className] + 1;
+    } else {
+      countMap[className] = 1;
+    }
+  });
+  return countMap;
+}
+const students = [
+  { name: "Rahim", class: "Ten" },
+  { name: "Karim", class: "Nine" },
+  { name: "Sumi", class: "Ten" },
+  { name: "Rina", class: "Eight" },
+  { name: "Mitu", class: "Nine" },
+  { name: "Tania", class: "Ten" },
+];
+console.table(countProductsByCategory2(students));
