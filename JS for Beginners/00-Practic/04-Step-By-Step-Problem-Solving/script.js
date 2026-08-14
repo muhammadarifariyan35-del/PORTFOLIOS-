@@ -268,3 +268,19 @@ const students = [
   { name: "Tania", class: "Ten" },
 ];
 console.table(countProductsByCategory2(students));
+
+//! লেভেল-১২ (Object Transformation & Reconstruction - অবজেক্ট রূপান্তর)
+
+function formatUserProfiles(users) {
+  return users.map((item) => ({
+    fullName: `${item.firstName} ${item.lastName}`,
+    age: item.age,
+  }));
+}
+const users = [
+  { firstName: "Rahim", lastName: "Ahmed", age: 25 },
+  { firstName: "Karim", lastName: "Uddin", age: 30 },
+  { firstName: "Sumi", lastName: "Akter", age: 22 },
+];
+
+console.table(formatUserProfiles(users));
