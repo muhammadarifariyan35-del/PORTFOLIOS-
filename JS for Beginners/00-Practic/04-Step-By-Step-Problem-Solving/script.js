@@ -285,81 +285,66 @@ const users = [
 
 console.table(formatUserProfiles(users));
 
-//! লেভেল-১ (JS Timers: Delayed Notification)
+//! লেভেল-১৩ (Nested Data Extraction - গভীর ডাটা বের করে আনা)
 
-function delayedLog(message, delayTime) {
-  setTimeout(() => {
-    console.log(message);
-  }, delayTime);
-}
-// delayedLog("Welcome to JavaScript Timer", 100);
-
-//! লেভেল-২ (JS Timers: Countdown Timer)
-
-function startCountDown(seconds) {
-  let count = seconds;
-  const timerId = setInterval(() => {
-    if (count > 0) {
-      console.log(count);
-      count--;
-    } else {
-      console.log("Time is up");
-      clearInterval(timerId);
-    }
-  }, 500);
-}
-// startCountDown(10);
-
-//! লেভেল-৩ (JS Timers + Closure: Stopwatch with Controls)
-
-function createStopwatch() {
-  let seconds = 0;
-  let timerId = null;
-  return {
-    start() {
-      if (timerId !== null) {
-        console.log("Stopwatch is already running!");
-        return;
-      }
-
-      timerId = setInterval(() => {
-        seconds++;
-        console.log(`Elapsed time ${seconds} seconds`);
-      }, 1000);
-    },
-    pause() {
-      if (timerId !== null) {
-        clearInterval(timerId);
-        timerId = null;
-      }
-      console.log(`Stopwatch paused at ${seconds} seconds`);
-      return;
-    },
-    reset() {
-      if (timerId !== null) {
-        clearInterval(timerId);
-        timerId = null;
-      }
-      seconds = 0;
-      console.log("Stopwatch reset to 0");
-      return;
-    },
-  };
+function getDeliverySheet(orders) {
+  return orders.map(({ customer, address }) => ({
+    name: customer.name,
+    phone: customer.phone,
+    city: address.city,
+  }));
 }
 
-const watch = createStopwatch();
+const orders = [
+  {
+    orderId: "ORD101",
+    customer: { name: "Rahim", phone: "01711111111" },
+    address: { city: "Dhaka", zip: "1205" },
+  },
+  {
+    orderId: "ORD102",
+    customer: { name: "Karim", phone: "01822222222" },
+    address: { city: "Chittagong", zip: "4000" },
+  },
+];
 
-// watch.start();
+console.table(getDeliverySheet(orders));
 
-// setTimeout(() => {
-//   watch.pause();
+//! লেভেল-১৪ (Advanced Searching & Filtering - জটিল শর্তে খোঁজা)
 
-//   setTimeout(() => {
-//     console.log("--- Resuming Stopwatch ---");
-//     watch.start();
+function filterLaptops(laptops) {
+  return laptops.filter(
+    (item) => item.brand === "Asus" && item.ram >= 16 && item.price < 90000,
+  );
+}
 
-//     setTimeout(() => {
-//       watch.reset();
-//     }, 3000);
-//   }, 2000);
-// }, 3000);
+const laptops = [
+  { brand: "Asus", ram: 8, price: 65000 },
+  { brand: "Asus", ram: 16, price: 85000 },
+  { brand: "HP", ram: 16, price: 88000 },
+  { brand: "Asus", ram: 32, price: 120000 },
+  { brand: "Asus", ram: 16, price: 78000 },
+];
+
+console.table(filterLaptops(laptops));
+
+//! লেভেল-১৫ (Data Aggregation & Analysis - চূড়ান্ত বিশ্লেষণ)
+
+function analyzeSales(orders) {
+  let totalRevenueFilter = orders.filter((item) => item.status === "Completed");
+  let totalRevenueReduce = totalRevenueFilter.reduce((a, b) => a + b.amount, 0);
+  let avarageOrderValue = +(
+    totalRevenueReduce / totalRevenueFilter.length
+  ).toFixed(2);
+  return { totalRevenueReduce, avarageOrderValue };
+}
+
+const orders3 = [
+  { id: 1, amount: 1200, status: "Completed" },
+  { id: 2, amount: 500, status: "Cancelled" },
+  { id: 3, amount: 2000, status: "Completed" },
+  { id: 4, amount: 800, status: "Pending" },
+  { id: 5, amount: 1800, status: "Completed" },
+];
+
+console.table(analyzeSales(orders3));
