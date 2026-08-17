@@ -348,3 +348,49 @@ const orders3 = [
 ];
 
 console.table(analyzeSales(orders3));
+
+//! লেভেল-১৬ (Data Mutation & Property Cleanup - ফিল্ড ডিলিট বা ক্লিনআপ করা)
+
+function cleanUserData(users) {
+  return users.map(({ password, ...rest }) => rest);
+}
+
+const users2 = [
+  { id: 1983, name: "Rahim", email: "rahim@gmail.com", password: "secret123" },
+  {
+    id: 2987,
+    name: "Karim",
+    email: "karim@gmail.com",
+    password: "mypassword456",
+  },
+];
+
+console.table(cleanUserData(users2));
+
+//! লেভেল-১৭ (Flattening & Merging Nested Arrays - অ্যারে সমতল করা)
+
+function getAllTags(products) {
+  return products.flatMap((item) => item.tags);
+}
+const products3 = [
+  { name: "Laptop", tags: ["electronics", "tech"] },
+  { name: "Shirt", tags: ["clothing", "fashion"] },
+  { name: "Phone", tags: ["electronics", "mobile"] },
+];
+console.log(getAllTags(products3));
+
+//! লেভেল-১৮ (Unique Values Extraction - ইউনিক বা অনন্য মান বের করা)
+
+function getUniqueTags(products) {
+  let allTags = products.flatMap((item) => item.tags);
+  let set = new Set(allTags);
+  return [...set];
+}
+
+const products4 = [
+  { name: "Laptop", tags: ["electronics", "tech"] },
+  { name: "Shirt", tags: ["clothing", "fashion"] },
+  { name: "Phone", tags: ["electronics", "mobile"] },
+];
+
+console.log(getUniqueTags(products4));
