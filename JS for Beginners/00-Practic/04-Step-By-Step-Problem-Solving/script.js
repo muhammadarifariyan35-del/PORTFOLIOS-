@@ -394,3 +394,26 @@ const products4 = [
 ];
 
 console.log(getUniqueTags(products4));
+
+//! লেভেল-১৯ (Data Association & Lookups - দুটি তালিকার মেলবন্ধন)
+
+function enrichOrders(orders, users) {
+  return orders.map((order) => {
+    const user = users.find((u) => u.id === order.userId);
+    return {
+      userName: user ? user.name : "Unknown",
+      ...order,
+    };
+  });
+}
+const users3 = [
+  { id: 1, name: "Rahim" },
+  { id: 2, name: "Karim" },
+];
+
+const orders2 = [
+  { orderId: 101, userId: 1, item: "Laptop" },
+  { orderId: 102, userId: 2, item: "Phone" },
+  { orderId: 103, userId: 1, item: "Mouse" },
+];
+console.table(enrichOrders(orders2, users3));
