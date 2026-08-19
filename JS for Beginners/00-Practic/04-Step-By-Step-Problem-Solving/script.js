@@ -417,3 +417,27 @@ const orders2 = [
   { orderId: 103, userId: 1, item: "Mouse" },
 ];
 console.table(enrichOrders(orders2, users3));
+
+//! লেভেল-২০ (Complex Grouping with Arrays - অ্যারে দিয়ে অ্যাডভান্সড গ্রুারিং)
+
+function groupProductsByCategory(products) {
+  const grouped = {};
+  products.forEach((product) => {
+    let cat = product.category;
+
+    if (grouped[cat]) {
+      grouped[cat].push(product);
+    } else {
+      grouped[cat] = [product];
+    }
+  });
+
+  return grouped;
+}
+const products5 = [
+  { name: "Shirt", category: "Clothing" },
+  { name: "Pant", category: "Clothing" },
+  { name: "Laptop", category: "Electronics" },
+  { name: "Apple", category: "Groceries" },
+];
+console.log(groupProductsByCategory(products5));
