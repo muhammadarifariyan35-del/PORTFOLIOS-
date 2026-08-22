@@ -81,3 +81,5 @@ console.log(x3[1]);
 console.log(typeof x4);
 
 
+let xx = 10
+let yy = "10"
