@@ -80,7 +80,6 @@ console.table(processOrders(orders));
 
 //! Student Result Analytics System
 
-
 function analyzeResults(students) {
   let passedStudents = students.filter((st) => st.status === "passed");
   let grouped = passedStudents.reduce((acc, student) => {
@@ -98,7 +97,7 @@ function analyzeResults(students) {
     acc[cl].totalMarks += student.mark;
     acc[cl].studentCount += 1;
 
-    if (student.mark > acc[cl].mark) {
+    if (student.mark > acc[cl].maxMark) {
       acc[cl].maxMark = student.mark;
       acc[cl].topScorer = student.name;
     }
@@ -110,7 +109,7 @@ function analyzeResults(students) {
   }
 
   const sortedEntirs = Object.entries(grouped).sort((a, b) => {
-    b[1].totalMarks - a[1].totalMarks;
+    return b[1].totalMarks - a[1].totalMarks;
   });
 
   return Object.fromEntries(sortedEntirs);
