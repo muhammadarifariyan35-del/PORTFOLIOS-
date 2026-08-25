@@ -48,6 +48,26 @@ addBtn.addEventListener("click", function () {
   document.getElementById("taskList").appendChild(li);
 });
 
+//________________________________
+
+function newFunction() {
+  document.querySelector("p").style.fontSize = "xx-large";
+  document.querySelector("p").style.color = "rgba(1, 163, 164,1.0)";
+  document.querySelector("#demo").innerHTML =
+    "hello <strong>Istar</strong> jahan";
+}
+
+addBtn.addEventListener("click", function () {
+  if (myinput.value.trim() === "") {
+    return alert("দয়া করে কিছু লেখো!");
+  }
+
+  let li = document.createElement("li");
+  li.innerText = myinput.value;
+  li.setAttribute("class", "taskListLI");
+  document.getElementById("taskList").appendChild(li);
+});
+
 function newFunction() {
   document.querySelector("p").style.fontSize = "xx-large";
   document.querySelector("p").style.color = "rgba(1, 163, 164,1.0)";
