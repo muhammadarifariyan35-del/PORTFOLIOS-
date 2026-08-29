@@ -26,3 +26,27 @@
   font-size: larger;
   border-radius: 7px;
 }
+
+#Btn {
+  color: aquamarine;
+  margin-left: 80%;
+  text-transform: capitalize;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#taskInput {
+  font-size: larger;
+  padding:  10px 20px;
+  border-radius: 8px;
+  border: none;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+#addBtn {
+  font-size: larger;
+  padding:  10px 20px;
+  border-radius: 8px;
+  border: none;
+}

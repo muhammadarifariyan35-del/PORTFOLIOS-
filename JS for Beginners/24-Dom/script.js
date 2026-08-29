@@ -44,44 +44,37 @@ addBtn.addEventListener("click", function () {
 
   let li = document.createElement("li");
   li.innerText = myinput.value;
-  li.setAttribute("class", "taskListLI");
   document.getElementById("taskList").appendChild(li);
+
+  myinput.value = "";
+
+  li.className = "taskListLI";
+
+  let btn = document.createElement("button");
+  btn.innerText = "Delete";
+  li.appendChild(btn);
+
+  btn.id = "Btn";
+
+  btn.addEventListener("click", function () {
+    li.remove();
+  });
 });
 
-//________________________________
+//__________________________
 
-function newFunction() {
-  document.querySelector("p").style.fontSize = "xx-large";
-  document.querySelector("p").style.color = "rgba(1, 163, 164,1.0)";
-  document.querySelector("#demo").innerHTML =
-    "hello <strong>Istar</strong> jahan";
-}
+const myForm = document.getElementById("myForm");
+const username = document.getElementById("username");
+const errorMsg = document.getElementById("errorMsg");
 
-addBtn.addEventListener("click", function () {
-  if (myinput.value.trim() === "") {
-    return alert("দয়া করে কিছু লেখো!");
+myForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  if (username.value.trim() === "") {
+    errorMsg.innerText = "নামের ফিল্ডটি খালি রাখা যাবে না!";
+  } else if (username.value.trim().length < 3) {
+    errorMsg.innerText = "নাম আন্তত তিন অক্ষরের হতে হবে!";
+  } else {
+    errorMsg.innerText = " ";
   }
-
-  let li = document.createElement("li");
-  li.innerText = myinput.value;
-  li.setAttribute("class", "taskListLI");
-  document.getElementById("taskList").appendChild(li);
-});
-
-function newFunction() {
-  document.querySelector("p").style.fontSize = "xx-large";
-  document.querySelector("p").style.color = "rgba(1, 163, 164,1.0)";
-  document.querySelector("#demo").innerHTML =
-    "hello <strong>Istar</strong> jahan";
-}
-
-addBtn.addEventListener("click", function () {
-  if (myinput.value.trim() === "") {
-    return alert("দয়া করে কিছু লেখো!");
-  }
-
-  let li = document.createElement("li");
-  li.innerText = myinput.value;
-  li.setAttribute("class", "taskListLI");
-  document.getElementById("taskList").appendChild(li);
 });
