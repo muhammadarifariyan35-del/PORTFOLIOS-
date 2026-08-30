@@ -64,7 +64,7 @@ addBtn.addEventListener("click", function () {
 //__________________________
 
 const myForm = document.getElementById("myForm");
-const username = document.getElementById("username");
+const username = document.getElementById("userName");
 const errorMsg = document.getElementById("errorMsg");
 
 myForm.addEventListener("submit", function (event) {
@@ -76,5 +76,8 @@ myForm.addEventListener("submit", function (event) {
     errorMsg.innerText = "নাম আন্তত তিন অক্ষরের হতে হবে!";
   } else {
     errorMsg.innerText = " ";
+    alert("ফর্ম সফল ভাবে সাবমিট হয়েছে");
+    console.log(username.value);
+    myForm.reset();
   }
 });
