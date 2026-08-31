@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVENTS</title>
+
+    <style>
+      button {
+        padding: 10px 20px;
+        background-color: chocolate;
+        border: none;
+        border-radius: 9px;
+        font-size: large;
+        text-transform: capitalize;
+        font-family: cursive;
+        display: block;
+        margin: 20px auto;
+      }
+
+      #demo{
+        background-color: cornsilk;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: larger;
+        border-radius: 8px;
+        margin: 0px 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="this.innerHTML = Date()">time Is</button>
+
+    <button id="myBtn">Click</button>
+    <p id="demo"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
