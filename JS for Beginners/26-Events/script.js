@@ -17,18 +17,25 @@ cli.addEventListener("mousemove", function (e) {
 
 //!_________________
 
-const input = document.getElementById("in01")
+const input = document.getElementById("in01");
 
-input.addEventListener("keydown", function(event){
-  if(event.ctrlKey && event.key === "M"){
-    alert("press kora hoyeche")
+input.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key === "M") {
+    alert("press kora hoyeche");
   }
-})
+});
 
-const input2 = document.getElementById("in02")
+const input2 = document.getElementById("in02");
 
-input2.addEventListener("keydown", function(event){
-  if(event.shiftKey && event.key === "Z"){
-    alert("press kora hoyeche")
+input2.addEventListener("keydown", function (event) {
+  if (event.shiftKey && event.key === "Z") {
+    alert("press kora hoyeche");
   }
-})
+});
+//!-------------
+
+const image = document.querySelector("img");
+
+image.addEventListener("load", function () {
+  alert("ছবিটি সফলভাবে লোড হয়েছে!");
+});
