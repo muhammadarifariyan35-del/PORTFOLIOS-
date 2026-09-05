@@ -1,0 +1,65 @@
+button {
+  padding: 10px 20px;
+  background-color: rgba(138, 75, 30, 0.658);
+  border: none;
+  border-radius: 9px;
+  font-size: large;
+  text-transform: capitalize;
+  font-family: cursive;
+  display: block;
+  margin: 20px auto;
+}
+
+#demo {
+  text-align: center;
+  font-size: larger;
+  border-radius: 8px;
+  margin: 0px 30px;
+}
+
+#clint {
+  background-color: rgb(52, 70, 104);
+  height: 400px;
+  box-sizing: border-box;
+  margin: 35px;
+  border: 2px solid rgb(72, 80, 70);
+  border-radius: 5px;
+}
+
+#clintPara {
+  font-size: xx-large;
+  text-align: center;
+}
+
+input {
+  padding: 10px 15px;
+  background-color: rgba(118, 211, 99, 0.836);
+  border: none;
+  border-radius: 6px;
+  margin: 40px;
+}
+
+img {
+  height: 400px;
+  display: block;
+  margin: 40px auto;
+}
+
+#itemList {
+  list-style: none;
+}
+
+li {
+  color: rgb(26, 80, 82);
+  text-align: center;
+  padding: 6px;
+  background-color: darkred;
+  font-size: x-large;
+  margin: 5px 30%;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+li:hover {
+  background-color: cornsilk;
+  color: black;
+}

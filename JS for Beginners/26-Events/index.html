@@ -4,55 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EVENTS</title>
-
-    <style>
-      button {
-        padding: 10px 20px;
-        background-color: rgba(138, 75, 30, 0.658);
-        border: none;
-        border-radius: 9px;
-        font-size: large;
-        text-transform: capitalize;
-        font-family: cursive;
-        display: block;
-        margin: 20px auto;
-      }
-
-      #demo {
-        text-align: center;
-        font-size: larger;
-        border-radius: 8px;
-        margin: 0px 30px;
-      }
-
-      #clint {
-        background-color: rgb(52, 70, 104);
-        height: 400px;
-        box-sizing: border-box;
-        margin: 35px;
-        border: 2px solid rgb(72, 80, 70);
-        border-radius: 5px;
-      }
-
-      #clintPara {
-        font-size: xx-large;
-        text-align: center;
-      }
-
-      input {
-        padding: 10px 15px;
-        background-color: rgba(118, 211, 99, 0.836);
-        border: none;
-        border-radius: 6px;
-        margin: 40px;
-      }
-
-      img{
-        height: 400px;
-        display: block;
-        margin: 40px auto;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <button onclick="this.innerHTML = Date()">time Is</button>
@@ -67,6 +19,18 @@
     <input id="in02" type="text" />
 
     <img src="images.jpg" alt="" />
+
+    <ul id="itemList">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+      <li>Item 05</li>
+      <li>Item 06</li>
+    </ul>
+
+    <button id="btn" >Click</button>
+    <button id="sbtn" >Stop</button>
 
     <script src="script.js"></script>
   </body>

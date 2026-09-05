@@ -32,10 +32,41 @@ input2.addEventListener("keydown", function (event) {
     alert("press kora hoyeche");
   }
 });
+
 //!-------------
 
-const image = document.querySelector("img");
+// const image = document.querySelector("img");
 
-image.addEventListener("load", function () {
-  alert("ছবিটি সফলভাবে লোড হয়েছে!");
+// image.addEventListener("load", function () {
+//   alert("ছবিটি সফলভাবে লোড হয়েছে!");
+// });
+
+//!-----------
+
+const itemList = document.getElementById("itemList");
+
+itemList.addEventListener("click", function (e) {
+  if (e.target.tagName === "LI") {
+    console.log("Clicked on: " + e.target.innerText);
+  }
 });
+
+//!_________________
+
+const btn2 = document.getElementById("btn");
+const btn3 = document.getElementById("sbtn");
+
+function sayHello() {
+  console.log("Hello");
+}
+
+btn2.addEventListener("click", sayHello);
+
+function stopSayHello() {
+  btn2.removeEventListener("click", sayHello);
+  console.log(
+    "ইভেন্ট রিমুভ করা হয়েছে! এখন 'Click Me' বাটনে চাপলে আর Hello আসবে না।",
+  );
+}
+
+btn3.addEventListener("click", stopSayHello);
