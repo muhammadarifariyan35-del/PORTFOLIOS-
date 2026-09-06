@@ -33,7 +33,7 @@ button {
 
 input {
   padding: 10px 15px;
-  background-color: rgba(118, 211, 99, 0.836);
+  background-color: rgba(57, 202, 195, 0.836);
   border: none;
   border-radius: 6px;
   margin: 40px;
@@ -58,6 +58,7 @@ li {
   margin: 5px 30%;
   text-transform: uppercase;
   border-radius: 10px;
+  
 }
 li:hover {
   background-color: cornsilk;
