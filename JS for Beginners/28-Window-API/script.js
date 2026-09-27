@@ -8,8 +8,16 @@ console.log(screen.height);
 console.log(screen.availWidth);
 console.log(screen.availHeight);
 
-console.log(window.location)
-console.log(location.protocol)
-console.log(location.hostname)
-console.log(location.port)
-console.log(location.pathname)
+console.log(window.location);
+console.log(location.protocol);
+console.log(location.hostname);
+console.log(location.port);
+console.log(location.pathname);
+
+function goBack() {
+  history.goBack();
+}
+
+function goForward() {
+  history.forward();
+}
