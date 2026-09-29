@@ -55,3 +55,15 @@ document.cookie =
   "username=arif ariyan; expires=thu, 18 Dec 2030 12:00:00 UTC; path=/";
 
 console.log(document.cookie)  
+document.cookie = "username=Arif Ariyan";
+
+document.cookie =
+  "username=arif ariyan; expires=thu, 18 Dec 2030 12:00:00 UTC; path=/";
+
+console.log(document.cookie)  
+document.cookie = "username=Arif Ariyan";
+
+document.cookie =
+  "username=arif ariyan; expires=thu, 18 Dec 2030 12:00:00 UTC; path=/";
+
+console.log(document.cookie)  
