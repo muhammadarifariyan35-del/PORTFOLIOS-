@@ -1,0 +1,10 @@
+{
+    "name": "Arif Ariyan",
+    "age": 20,
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "isStudent": true,
+    "address": {
+        "city": "Mymensingh",
+        "country": "Bangladesh"
+    }
+}
