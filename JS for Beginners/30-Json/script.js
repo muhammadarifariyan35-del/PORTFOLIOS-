@@ -17,12 +17,22 @@ console.log(JSON.parse(person2));
 
 //_______
 
+async function loadJsonData() {
+  try {
+    let responce = await fetch("data.json");
 
-async function dataLoad(data) {
-    let response = await fetch(data)
-    let allData =  await response.json()
+    if (!responce.ok) {
+      console.log("Error", responce.status, responce.statusText);
+      return;
+    }
 
-    console.table(allData)
-    
+    let data = await responce.json();
+    console.table(data);
+    console.log("Name", data.name);
+    console.log("City", data.address.city);
+  } catch (err) {
+    console.log("fetch error", err);
+  }
 }
-dataLoad("data.json")
+
+loadJsonData();
