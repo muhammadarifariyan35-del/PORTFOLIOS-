@@ -17,12 +17,35 @@ async function fetchData(url) {
 fetchData("data.txt");
 
 //! প্রবলেম ২: লোকাল JSON ফাইল পড়া
+let para = document.getElementById("paragraph");
+
 async function fetchJson(url) {
   let response = await fetch(url);
   let data = await response.json();
 
+  para.innerText = " ";
+
   data.forEach((element) => {
-    console.log(`${element.username} is a ${element.role}`);
+    para.innerText += `${element.username} is a ${element.role}` + "\n";
   });
 }
 fetchJson("user.json");
+
+//! প্রবলেম ৩: try...catch ও error handling মেলানো
+
+async function getPost() {
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+
+    if (!response.ok) {
+      throw new Error(" Your fetch did not work ");
+    }
+
+    let data = await response.json();
+    console.log(`${data.title} \n ${data.body}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+getPost();

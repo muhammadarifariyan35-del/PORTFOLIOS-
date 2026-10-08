@@ -10,5 +10,11 @@
     "username": "Israt jahan jui",
     "role": "Graphic desighner",
     "isLoggedIn": true
+  },
+  {
+    "id": 3,
+    "username": "jui",
+    "role": "UI/UX desighner",
+    "isLoggedIn": true
   }
 ]
