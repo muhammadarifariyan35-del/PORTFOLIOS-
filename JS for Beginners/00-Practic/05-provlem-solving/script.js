@@ -49,3 +49,40 @@ async function getPost() {
 }
 
 getPost();
+
+//! প্রবলেম ৪: নেটওয়ার্ক এরর হ্যান্ডলিং ও লোডিং স্টেট
+
+async function userFunction() {
+  try {
+    let message = "Loading...";
+    console.log(message);
+
+    let response = await fetch("https://dummyjson.com/quotes/random");
+
+    if (!response.ok) {
+      throw new Error(`error: ${response.status}`);
+    }
+
+    let data = await response.json();
+    message = data;
+    console.log(message);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+userFunction();
+
+//! 🟢 ১. সহজ (Level 1): Array & Function Basic
+
+const usersList = [
+  { name: "Arif", age: 22 },
+  { name: "Rahim", age: 15 },
+  { name: "Tanvir", age: 19 },
+];
+
+function getAdultUser(users) {
+  return users.filter((x) => x.age >= 18);
+}
+
+console.log(getAdultUser(usersList));
