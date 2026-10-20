@@ -1,0 +1,27 @@
+#paragraph {
+  background-color: cadetblue;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+  font-size: large;
+}
+#count {
+  border: 1px solid rgb(109, 107, 107);
+  text-align: center;
+  margin: 2px 40%;
+  padding: 10px;
+  font-size: xx-large;
+  border-radius: 7px;
+}
+#btn {
+  background-color: rgba(150, 125, 93, 0.849);
+  border: none;
+  text-transform: uppercase;
+  font-size: larger;
+  padding: 10px 30px;
+  border-radius: 7px;
+  display: block;
+  margin: 10px auto;
+}
